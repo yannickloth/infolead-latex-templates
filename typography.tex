@@ -11,11 +11,13 @@
 \usepackage[oldstylenums,fullsumlimits,fullintlimits,nofligatures]{kpfonts}
 
 % Verify required packages are loaded for unicode characters
+\makeatletter
 \@ifpackageloaded{newunicodechar}{}{%
   \PackageError{typography}{newunicodechar package required}{%
     This file requires the newunicodechar package for unicode character definitions.%
   }%
 }
+\makeatother
 
 % Symbol support (for \texteuro)
 \usepackage{textcomp}
