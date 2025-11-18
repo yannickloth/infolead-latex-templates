@@ -5,11 +5,13 @@
 % Requires: KOMA-Script document class
 
 % Verify KOMA-Script document class is loaded
+\makeatletter
 \@ifundefined{KOMAClassName}{%
   \PackageError{koma-config}{KOMA-Script document class required}{%
     This file requires a KOMA-Script document class (scrreprt, scrbook, or scrartcl).%
   }%
 }{}
+\makeatother
 
 % KOMA-Script compatibility fixes for older packages
 \usepackage{scrhack}

@@ -5,11 +5,13 @@
 % Requires: KOMA-Script document class (scrreprt, scrbook, or scrartcl)
 
 % Verify KOMA-Script document class is loaded
+\makeatletter
 \@ifundefined{KOMAClassName}{%
   \PackageError{koma-headers}{KOMA-Script document class required}{%
     This file requires a KOMA-Script document class (scrreprt, scrbook, or scrartcl).%
   }%
 }{}
+\makeatother
 
 % KOMA-Script headers using scrlayer-scrpage (replaces fancyhdr)
 \usepackage{scrlayer-scrpage}

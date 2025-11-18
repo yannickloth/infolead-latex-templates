@@ -5,11 +5,13 @@
 % Requires: xcolor (for colored diagrams)
 
 % Verify xcolor is loaded (needed for colored shapes)
+\makeatletter
 \@ifpackageloaded{xcolor}{}{%
   \PackageError{diagrams}{xcolor package required}{%
     This file requires the xcolor package to be loaded first.%
   }%
 }
+\makeatother
 
 % TikZ for general diagrams
 \usepackage{tikz}
