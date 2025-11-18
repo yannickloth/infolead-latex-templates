@@ -1,0 +1,27 @@
+% ============================================================================
+% PIV-SPECIFIC THEOREM ENVIRONMENTS
+% ============================================================================
+% Custom theorem-like structures for PIV (Principle of Independent Variation)
+% and software design theory documents.
+% Requires: amsthm package
+
+% Verify amsthm package is loaded
+\@ifpackageloaded{amsthm}{}{%
+  \PackageError{theorems-piv}{amsthm package required}{%
+    This file requires the amsthm package to be loaded first.%
+  }%
+}
+
+% Definition style (upright body) for PIV-specific content
+\theoremstyle{definition}
+\newtheorem{axiom}{Axiom}
+\newtheorem{principle}{Principle}
+\newtheorem{directive}{Directive}
+\newtheorem{problem}{Problem}[section]
+\newtheorem{pattern}{Pattern}[section]
+\newtheorem{design-decision}{Design Decision}[section]
+\newtheorem{fallacy}{Fallacy}[section]
+\newtheorem{observation}{Observation}[section]
+\newtheorem{instantiation}{Instantiation}[section]
+\newtheorem{construction}{Construction}[section]
+\newtheorem{speculation}{Speculation}[section]

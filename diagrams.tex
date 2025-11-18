@@ -1,0 +1,19 @@
+% ============================================================================
+% DIAGRAM CONFIGURATION
+% ============================================================================
+% Packages and settings for creating diagrams and commutative diagrams.
+% Requires: xcolor (for colored diagrams)
+
+% Verify xcolor is loaded (needed for colored shapes)
+\@ifpackageloaded{xcolor}{}{%
+  \PackageError{diagrams}{xcolor package required}{%
+    This file requires the xcolor package to be loaded first.%
+  }%
+}
+
+% TikZ for general diagrams
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes,arrows}
+
+% Commutative diagrams (category theory)
+\usepackage{tikz-cd}

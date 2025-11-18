@@ -1,0 +1,36 @@
+% ============================================================================
+% KOMA-SCRIPT CONFIGURATION
+% ============================================================================
+% Settings specific to the KOMA-Script document class (scrreprt, scrbook, or scrartcl).
+% Requires: KOMA-Script document class
+
+% Verify KOMA-Script document class is loaded
+\@ifundefined{KOMAClassName}{%
+  \PackageError{koma-config}{KOMA-Script document class required}{%
+    This file requires a KOMA-Script document class (scrreprt, scrbook, or scrartcl).%
+  }%
+}{}
+
+% KOMA-Script compatibility fixes for older packages
+\usepackage{scrhack}
+
+% KOMA-Script document options
+\KOMAoptions{
+    toc=bibliography,
+    toc=listof,
+    headings=normal,
+    parskip=half
+}
+
+% Increase TOC number width for section entries to prevent overflow
+\RedeclareSectionCommand[
+  tocnumwidth=3em
+]{section}
+
+\RedeclareSectionCommand[
+  tocnumwidth=2.5em
+]{subsection}
+
+\RedeclareSectionCommand[
+  tocnumwidth=3.5em
+]{subsubsection}

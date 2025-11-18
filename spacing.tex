@@ -1,0 +1,37 @@
+% ============================================================================
+% SPACING ADJUSTMENTS
+% ============================================================================
+% Fine-tuned spacing for theorem environments, lists, and equations.
+% Requires: amsthm (for theorem spacing)
+
+% Verify amsthm is loaded
+\@ifpackageloaded{amsthm}{}{%
+  \PackageError{spacing}{amsthm package required}{%
+    This file requires the amsthm package for theorem spacing adjustments.%
+  }%
+}
+
+% List customization package
+\usepackage{enumitem}
+
+% Reduce spacing around theorem-like environments (principle, directive, etc.)
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=0.5\baselineskip plus 0.2\baselineskip minus 0.1\baselineskip
+  \thm@postskip=0.5\baselineskip plus 0.2\baselineskip minus 0.1\baselineskip
+}
+\makeatother
+
+% Reduce spacing in itemize and enumerate environments
+\setlist{
+  topsep=0.3\baselineskip,        % Space before the list
+  partopsep=0pt,                  % Extra space before list when preceded by blank line
+  itemsep=0.15\baselineskip,      % Space between items
+  parsep=0pt                      % Space between paragraphs within an item
+}
+
+% Reduce spacing around equations
+\setlength{\abovedisplayskip}{0.5\baselineskip plus 0.2\baselineskip minus 0.1\baselineskip}
+\setlength{\belowdisplayskip}{0.5\baselineskip plus 0.2\baselineskip minus 0.1\baselineskip}
+\setlength{\abovedisplayshortskip}{0.3\baselineskip plus 0.1\baselineskip minus 0.05\baselineskip}
+\setlength{\belowdisplayshortskip}{0.3\baselineskip plus 0.1\baselineskip minus 0.05\baselineskip}

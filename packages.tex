@@ -1,0 +1,29 @@
+% ============================================================================
+% CORE PACKAGES
+% ============================================================================
+% Essential packages that provide fundamental functionality shared across
+% multiple feature modules. Feature-specific packages are loaded in their
+% respective feature files (listings.tex, diagrams.tex, tables.tex, etc.).
+%
+% Load order is critical - do not reorder without checking dependencies.
+
+% Graphics support (required by many packages including tikz, graphicx users)
+\usepackage{graphicx}
+
+% Color support (required by diagrams, listings, and other color features)
+\usepackage{xcolor}
+
+% Math packages (needed since scrreprt doesn't load them by default)
+% These are foundational for all mathematical content
+\usepackage{amsmath,amssymb,amsthm}
+
+% Enhanced math tools (extends amsmath)
+\usepackage{mathtools}
+
+% Language and encoding (must load before csquotes)
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+\usepackage[english]{babel}
+
+% Smart quote handling with nesting support
+\usepackage[autostyle=true]{csquotes}

@@ -1,0 +1,85 @@
+\documentclass[11pt,oneside,a4paper,numbers=noenddot]{scrreprt}
+
+% ============================================================================
+% PREAMBLE (SHARED)
+% ============================================================================
+% Modular preamble organized by independent concerns (PIV principle).
+% Shared across all LaTeX documents for consistency and DRY.
+% Each feature (tables, diagrams, listings, etc.) is self-contained with
+% its own package imports and configuration.
+%
+% Load order is significant - do not reorder without checking dependencies.
+
+% Path to shared preamble (adjust relative to your document location)
+\newcommand{\sharedpreamble}{../../../latex-shared/preamble}
+
+% KOMA-Script configuration (must load early)
+\input{\sharedpreamble/koma-config.tex}
+
+% Typography and fonts (must load before math packages)
+\input{\sharedpreamble/typography.tex}
+
+% Core packages (shared across multiple features)
+\input{\sharedpreamble/packages.tex}
+
+% Mathematical configuration
+\input{\sharedpreamble/math.tex}
+
+% Theorem-like environments (choose what you need)
+\input{\sharedpreamble/theorems-standard.tex}  % Generic math theorems
+% \input{\sharedpreamble/theorems-piv.tex}     % PIV-specific theorems (optional)
+
+% Feature-specific modules (comment out features you don't need)
+\input{\sharedpreamble/bibliography.tex}   % Citation support
+\input{\sharedpreamble/tables.tex}         % Table formatting
+\input{\sharedpreamble/diagrams.tex}       % TikZ diagrams
+\input{\sharedpreamble/algorithms.tex}     % Algorithm pseudocode
+\input{\sharedpreamble/listings.tex}       % Code listings
+
+% Spacing adjustments
+\input{\sharedpreamble/spacing.tex}
+
+% Page headers and footers (KOMA-Script)
+\input{\sharedpreamble/koma-headers.tex}
+
+% Hyperref (MUST load last)
+\input{\sharedpreamble/hyperref.tex}
+
+% ============================================================================
+% DOCUMENT-SPECIFIC CUSTOMIZATIONS
+% ============================================================================
+
+% Optional: Define custom environments here
+% \newenvironment{keywords}{%
+%     \vspace{0.5\baselineskip}
+%     \noindent\textbf{Keywords:}
+% }{\par\vspace{0.5\baselineskip}}
+
+% ============================================================================
+% DOCUMENT CONTENT
+% ============================================================================
+
+\begin{document}
+
+% Title and author information
+\title{TEMPLATE: Your Dissertation Title}
+
+\author{Your Name\\
+    \small Your Affiliation\\
+    \small City, Country\\
+    \small \href{mailto:your.email@example.com}{your.email@example.com}\\
+    \small ORCID: \href{https://orcid.org/YOUR-ORCID-ID}{YOUR-ORCID-ID}}
+
+\date{\today}
+
+\maketitle
+
+\clearpage
+
+% Table of contents
+\tableofcontents
+
+% Include your content (create a contents.tex file with \input statements)
+\input{contents}
+
+\end{document}

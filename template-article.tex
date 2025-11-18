@@ -1,0 +1,105 @@
+\documentclass[11pt,a4paper]{scrartcl}
+
+% ============================================================================
+% PREAMBLE (SHARED)
+% ============================================================================
+% Modular preamble organized by independent concerns (PIV principle).
+% Shared across all LaTeX documents for consistency and DRY.
+%
+% Note: This is for conference/journal articles. For longer documents,
+% use template-dissertation.tex (scrreprt) or template-book.tex (scrbook).
+
+% Path to shared preamble (adjust relative to your document location)
+\newcommand{\sharedpreamble}{../../../latex-shared/preamble}
+
+% KOMA-Script configuration (must load early)
+\input{\sharedpreamble/koma-config.tex}
+
+% Typography and fonts (must load before math packages)
+\input{\sharedpreamble/typography.tex}
+
+% Core packages (shared across multiple features)
+\input{\sharedpreamble/packages.tex}
+
+% Mathematical configuration
+\input{\sharedpreamble/math.tex}
+
+% Theorem-like environments (choose what you need)
+\input{\sharedpreamble/theorems-standard.tex}  % Generic math theorems
+% \input{\sharedpreamble/theorems-piv.tex}     % PIV-specific theorems (optional)
+
+% Feature-specific modules (comment out features you don't need)
+\input{\sharedpreamble/bibliography.tex}   % Citation support
+\input{\sharedpreamble/tables.tex}         % Table formatting
+\input{\sharedpreamble/diagrams.tex}       % TikZ diagrams
+\input{\sharedpreamble/algorithms.tex}     % Algorithm pseudocode
+\input{\sharedpreamble/listings.tex}       % Code listings
+
+% Spacing adjustments (you may want to relax these for articles)
+\input{\sharedpreamble/spacing.tex}
+
+% Page headers and footers (KOMA-Script)
+% Note: For articles, you may want to disable or customize headers
+% \input{\sharedpreamble/koma-headers.tex}
+
+% Hyperref (MUST load last)
+\input{\sharedpreamble/hyperref.tex}
+
+% ============================================================================
+% DOCUMENT-SPECIFIC CUSTOMIZATIONS
+% ============================================================================
+
+% Optional: Define keywords environment for abstract
+\newenvironment{keywords}{%
+    \vspace{0.5\baselineskip}
+    \noindent\textbf{Keywords:}
+}{\par\vspace{0.5\baselineskip}}
+
+% ============================================================================
+% DOCUMENT CONTENT
+% ============================================================================
+
+\begin{document}
+
+% Title and author information
+\title{TEMPLATE: Your Article Title}
+
+\author{Your Name\\
+    \small Your Affiliation\\
+    \small \href{mailto:your.email@example.com}{your.email@example.com}}
+
+\date{\today}
+
+\maketitle
+
+% Abstract
+\begin{abstract}
+    TEMPLATE: Write your abstract here. Typically 150-300 words summarizing
+    the problem, approach, results, and conclusions.
+\end{abstract}
+
+\begin{keywords}
+    keyword1, keyword2, keyword3, keyword4
+\end{keywords}
+
+% Article content
+\section{Introduction}
+TEMPLATE: Your introduction...
+
+\section{Related Work}
+TEMPLATE: Related work...
+
+\section{Approach}
+TEMPLATE: Your approach...
+
+\section{Evaluation}
+TEMPLATE: Your evaluation...
+
+\section{Conclusion}
+TEMPLATE: Your conclusion...
+
+% Bibliography
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

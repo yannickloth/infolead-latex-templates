@@ -1,0 +1,40 @@
+% ============================================================================
+% THEOREM-LIKE ENVIRONMENTS
+% ============================================================================
+% Definitions for all theorem-like structures used in the dissertation.
+% Requires: amsthm package
+
+% Verify amsthm package is loaded
+\@ifpackageloaded{amsthm}{}{%
+  \PackageError{theorems}{amsthm package required}{%
+    This file requires the amsthm package to be loaded first.%
+  }%
+}
+
+% Plain style (italic body) for mathematical statements
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+
+% Definition style (upright body) for definitions and descriptive content
+\theoremstyle{definition}
+\newtheorem{axiom}{Axiom}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{principle}{Principle}
+\newtheorem{directive}{Directive}
+\newtheorem{example}{Example}[section]
+\newtheorem{problem}{Problem}[section]
+\newtheorem{pattern}{Pattern}[section]
+\newtheorem{design-decision}{Design Decision}[section]
+\newtheorem{fallacy}{Fallacy}[section]
+\newtheorem{observation}{Observation}[section]
+\newtheorem{instantiation}{Instantiation}[section]
+\newtheorem{construction}{Construction}[section]
+\newtheorem{speculation}{Speculation}[section]
+
+% Remark style for notes and remarks
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}

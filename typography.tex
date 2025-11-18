@@ -1,0 +1,34 @@
+% ============================================================================
+% TYPOGRAPHY AND FONTS
+% ============================================================================
+% Font configuration, unicode character definitions, and typographic settings.
+% Requires: inputenc, newunicodechar packages (loaded in packages.tex)
+
+% Kepler fonts for text and math (loads before amsmath)
+% oldstylenums: old-style numerals
+% fullsumlimits/fullintlimits: limits positioning
+% nofligatures: disables decorative ligatures (st, ct, sp, etc.)
+\usepackage[oldstylenums,fullsumlimits,fullintlimits,nofligatures]{kpfonts}
+
+% Verify required packages are loaded for unicode characters
+\@ifpackageloaded{newunicodechar}{}{%
+  \PackageError{typography}{newunicodechar package required}{%
+    This file requires the newunicodechar package for unicode character definitions.%
+  }%
+}
+
+% Symbol support (for \texteuro)
+\usepackage{textcomp}
+
+% Define Unicode characters for LaTeX
+\newunicodechar{↔}{$\leftrightarrow$}
+\newunicodechar{↮}{$\nleftrightarrow$}
+\newunicodechar{├}{+}
+\newunicodechar{─}{-}
+\newunicodechar{│}{|}
+\newunicodechar{└}{+}
+\newunicodechar{≤}{$\leq$}
+\newunicodechar{≈}{$\approx$}
+
+% Euro symbol command
+\newcommand{\euro}{\texteuro}

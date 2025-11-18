@@ -1,0 +1,27 @@
+% ============================================================================
+% PAGE HEADERS AND FOOTERS (KOMA-Script)
+% ============================================================================
+% Configuration for running headers and footers using KOMA-Script.
+% Requires: KOMA-Script document class (scrreprt, scrbook, or scrartcl)
+
+% Verify KOMA-Script document class is loaded
+\@ifundefined{KOMAClassName}{%
+  \PackageError{koma-headers}{KOMA-Script document class required}{%
+    This file requires a KOMA-Script document class (scrreprt, scrbook, or scrartcl).%
+  }%
+}{}
+
+% KOMA-Script headers using scrlayer-scrpage (replaces fancyhdr)
+\usepackage{scrlayer-scrpage}
+
+% Headers: Chapter/section names centered
+\automark[section]{chapter}  % [right-mark]{left-mark}
+\cehead{\headmark}           % Center Even HEAD: chapter name
+\cohead{\headmark}           % Center Odd HEAD: section name
+
+% Uncomment to add footers with page numbers on outer edges:
+% \lefoot{\pagemark}         % Left Even FOOT: page number on left (outer)
+% \rofoot{\pagemark}         % Right Odd FOOT: page number on right (outer)
+
+% Uncomment to add a separator line below headers:
+% \KOMAoptions{headsepline=0.4pt}

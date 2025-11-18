@@ -1,0 +1,19 @@
+% ============================================================================
+% MATHEMATICAL OPERATORS AND CONFIGURATION
+% ============================================================================
+% Custom math operators and matrix/array settings.
+% Requires: amsmath package (for \DeclareMathOperator)
+
+% Verify amsmath package is loaded
+\@ifpackageloaded{amsmath}{}{%
+  \PackageError{math}{amsmath package required}{%
+    This file requires the amsmath package to be loaded first.%
+  }%
+}
+
+% Define argmax and argmin operators
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+
+% Adjust array and matrix spacing
+\renewcommand{\arraystretch}{1.1}  % Default is 1.0, slightly increased for readability

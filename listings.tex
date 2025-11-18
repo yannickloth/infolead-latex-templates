@@ -1,0 +1,43 @@
+% ============================================================================
+% CODE LISTING CONFIGURATION
+% ============================================================================
+% Settings for displaying code blocks and programming language syntax.
+% Requires: xcolor package (for syntax highlighting colors)
+
+% Verify xcolor is loaded (needed for color in language definitions)
+\@ifpackageloaded{xcolor}{}{%
+  \PackageError{listings}{xcolor package required}{%
+    This file requires the xcolor package to be loaded first for syntax highlighting.%
+  }%
+}
+
+% Code listing package
+\usepackage{listings}
+
+% Configure listings for code blocks
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    breakatwhitespace=true,
+    columns=flexible,
+    keepspaces=true
+}
+
+% Define json language for listings (simple definition)
+\lstdefinelanguage{json}{
+    basicstyle=\ttfamily\small,
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    literate=
+        *{0}{{{\color{black}0}}}{1}
+        {1}{{{\color{black}1}}}{1}
+        {2}{{{\color{black}2}}}{1}
+        {3}{{{\color{black}3}}}{1}
+        {4}{{{\color{black}4}}}{1}
+        {5}{{{\color{black}5}}}{1}
+        {6}{{{\color{black}6}}}{1}
+        {7}{{{\color{black}7}}}{1}
+        {8}{{{\color{black}8}}}{1}
+        {9}{{{\color{black}9}}}{1}
+}
