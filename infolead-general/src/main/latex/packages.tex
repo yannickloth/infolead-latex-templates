@@ -7,6 +7,10 @@
 %
 % Load order is critical - do not reorder without checking dependencies.
 
+% Language and encoding (must load early for unicode support)
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
 % Graphics support (required by many packages including tikz, graphicx users)
 \usepackage{graphicx}
 
@@ -15,14 +19,13 @@
 
 % Math packages (needed since scrreprt doesn't load them by default)
 % These are foundational for all mathematical content
+% NOTE: kpfonts in typography.tex loads its own amsmath-compatible math support
 \usepackage{amsmath,amssymb,amsthm}
 
 % Enhanced math tools (extends amsmath)
 \usepackage{mathtools}
 
-% Language and encoding (must load before csquotes)
-\usepackage[utf8]{inputenc}
-\usepackage{newunicodechar}
+% Babel (must load after inputenc)
 \usepackage[english]{babel}
 
 % Smart quote handling with nesting support
