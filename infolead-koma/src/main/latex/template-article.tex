@@ -10,10 +10,11 @@
 % use template-dissertation.tex (scrreprt) or template-book.tex (scrbook).
 
 % Path to shared preamble (adjust relative to your document location)
-\newcommand{\sharedpreamble}{../../../latex-shared/preamble}
+\newcommand{\sharedpreamble}{../../..}
+\newcommand{\komapreamble}{.}
 
 % KOMA-Script configuration (must load early)
-\input{\sharedpreamble/koma-config.tex}
+\input{\komapreamble/koma-config.tex}
 
 % Typography and fonts (must load before math packages)
 \input{\sharedpreamble/typography.tex}
@@ -40,7 +41,7 @@
 
 % Page headers and footers (KOMA-Script)
 % Note: For articles, you may want to disable or customize headers
-% \input{\sharedpreamble/koma-headers.tex}
+% \input{\komapreamble/koma-headers.tex}
 
 % Hyperref (MUST load last)
 \input{\sharedpreamble/hyperref.tex}

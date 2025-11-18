@@ -11,10 +11,13 @@
 % Load order is significant - do not reorder without checking dependencies.
 
 % Path to shared preamble (adjust relative to your document location)
-\newcommand{\sharedpreamble}{../../../latex-shared/preamble}
+% Generic preamble (root of infolead-latex-templates)
+\newcommand{\sharedpreamble}{../../..}
+% KOMA-specific preamble (this directory)
+\newcommand{\komapreamble}{.}
 
 % KOMA-Script configuration (must load early)
-\input{\sharedpreamble/koma-config.tex}
+\input{\komapreamble/koma-config.tex}
 
 % Typography and fonts (must load before math packages)
 \input{\sharedpreamble/typography.tex}
@@ -40,7 +43,7 @@
 \input{\sharedpreamble/spacing.tex}
 
 % Page headers and footers (KOMA-Script)
-\input{\sharedpreamble/koma-headers.tex}
+\input{\komapreamble/koma-headers.tex}
 
 % Hyperref (MUST load last)
 \input{\sharedpreamble/hyperref.tex}
