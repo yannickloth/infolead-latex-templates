@@ -6,28 +6,52 @@ A modular, PIV-based (Principle of Independent Variation) LaTeX preamble for con
 
 This preamble follows the **Principle of Independent Variation (PIV)**: each concern varies in exactly one place. Every feature (tables, diagrams, algorithms, listings) is self-contained with its own package imports and configuration.
 
+## Directory Structure
+
+All preamble modules are at the root level for easy access:
+
+```
+infolead-latex-templates/
+├── packages.tex              # Core packages
+├── typography.tex            # Font configuration
+├── math.tex                  # Mathematical operators
+├── theorems-standard.tex     # Standard math theorems
+├── theorems-piv.tex          # PIV-specific theorems
+├── bibliography.tex          # Citation support
+├── tables.tex                # Table formatting
+├── diagrams.tex              # TikZ diagrams
+├── algorithms.tex            # Algorithm pseudocode
+├── listings.tex              # Code listings
+├── spacing.tex               # Spacing adjustments
+├── hyperref.tex              # Hyperlinks (load last)
+├── koma-config.tex           # KOMA-Script config
+├── koma-headers.tex          # Page headers/footers
+└── templates/
+    ├── template-article.tex
+    ├── template-book.tex
+    └── template-report.tex
+```
+
 ## Quick Start
 
-### For a New Dissertation
+### Using as Git Submodule
 
 ```bash
-# Copy the template
-cp ~/latex-shared/preamble/template-dissertation.tex ~/documents/my-dissertation/dissertation.tex
+# Add as submodule to your project
+git submodule add git@github.com:yannickloth/infolead-latex-templates.git
 
-# Adjust the relative path if needed
-# In dissertation.tex, update: \newcommand{\sharedpreamble}{../../../latex-shared/preamble}
+# In your main.tex, reference the preamble:
+\newcommand{\preamble}{infolead-latex-templates}
+\input{\preamble/packages.tex}
+\input{\preamble/typography.tex}
+# etc.
 ```
 
-### For a New Article
+### Using Templates
 
 ```bash
-cp ~/latex-shared/preamble/template-article.tex ~/documents/my-article/article.tex
-```
-
-### For a New Book
-
-```bash
-cp ~/latex-shared/preamble/template-book.tex ~/documents/my-book/book.tex
+# Copy a template
+cp infolead-latex-templates/templates/template-article.tex ./ms.tex
 ```
 
 ## Preamble Modules
