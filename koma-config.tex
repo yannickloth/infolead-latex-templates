@@ -25,6 +25,15 @@
   headheight=27.2pt
 }
 
+% Configure abstract environment to show heading and prevent page breaks
+\renewcommand*{\abstractname}{Abstract}
+\renewenvironment{abstract}{%
+  \section*{\abstractname}%
+  \quotation
+}{%
+  \endquotation
+}
+
 % Increase TOC number width for section entries to prevent overflow
 \RedeclareSectionCommand[
   tocnumwidth=4em
