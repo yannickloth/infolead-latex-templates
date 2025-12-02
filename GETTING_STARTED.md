@@ -13,10 +13,10 @@ Your dissertation preamble has been extracted into a **shared, reusable structur
 ### ✅ Completed
 
 1. **Shared preamble created** at `~/latex-shared/preamble/`
-2. **Dissertation updated** to use shared preamble (at [dissertation.tex](../../../code/PIV/Dissertation/dissertation.tex:14))
+2. **Dissertation updated** to use shared preamble (at [dissertation.tex](../../../code/IVP/Dissertation/dissertation.tex:14))
 3. **Theorems split** into:
    - `theorems-standard.tex` (generic math: theorem, lemma, corollary, etc.)
-   - `theorems-piv.tex` (your custom: principle, directive, instantiation, etc.)
+   - `theorems-ivp.tex` (your custom: principle, directive, instantiation, etc.)
 4. **Templates created**:
    - `template-dissertation.tex` (for future dissertations)
    - `template-article.tex` (for papers/articles)
@@ -37,7 +37,7 @@ Your dissertation preamble has been extracted into a **shared, reusable structur
 ├── packages.tex                  (core packages)
 ├── math.tex                      (math operators)
 ├── theorems-standard.tex         (generic theorems)
-├── theorems-piv.tex              (PIV-specific theorems)
+├── theorems-ivp.tex              (IVP-specific theorems)
 │
 ├── bibliography.tex              (citations)
 ├── tables.tex                    (table formatting)
@@ -82,16 +82,16 @@ cp ~/latex-shared/preamble/template-dissertation.tex dissertation.tex
 
 ## Your Current Dissertation
 
-Your dissertation at `~/code/PIV/Dissertation/` now uses the shared preamble. The next time you compile, it will work exactly as before - but now you can:
+Your dissertation at `~/code/IVP/Dissertation/` now uses the shared preamble. The next time you compile, it will work exactly as before - but now you can:
 
 ### Test the Setup
 
 ```bash
-cd ~/code/PIV/Dissertation
+cd ~/code/IVP/Dissertation
 pdflatex dissertation.tex
 ```
 
-If you see errors about file paths, adjust the relative path in [dissertation.tex:14](../../../code/PIV/Dissertation/dissertation.tex:14):
+If you see errors about file paths, adjust the relative path in [dissertation.tex:14](../../../code/IVP/Dissertation/dissertation.tex:14):
 
 ```latex
 \newcommand{\sharedpreamble}{../../../latex-shared/preamble}
@@ -162,7 +162,7 @@ git commit -m "Initial shared LaTeX preamble"
 The `\sharedpreamble` path is relative. Count the directory levels:
 
 ```
-~/code/PIV/Dissertation/dissertation.tex
+~/code/IVP/Dissertation/dissertation.tex
 ~/latex-shared/preamble/
 
 From Dissertation/ to latex-shared/:
@@ -184,10 +184,10 @@ The old `theorems.tex` still exists in `~/latex-shared/preamble/` and your local
 
 ```bash
 rm ~/latex-shared/preamble/theorems.tex
-rm ~/code/PIV/Dissertation/Preamble/theorems.tex
+rm ~/code/IVP/Dissertation/Preamble/theorems.tex
 ```
 
-Your dissertation now uses `theorems-standard.tex` and `theorems-piv.tex`.
+Your dissertation now uses `theorems-standard.tex` and `theorems-ivp.tex`.
 
 ## Next Steps
 
@@ -203,7 +203,7 @@ Your dissertation now uses `theorems-standard.tex` and `theorems-piv.tex`.
 ✅ **Consistency**: All documents look professional and uniform
 ✅ **Maintainability**: Easy to update and fix issues
 ✅ **Flexibility**: Per-document feature selection
-✅ **PIV**: Each concern varies independently
+✅ **IVP**: Each concern varies independently
 ✅ **Templates**: Quick start for new documents
 ✅ **Documentation**: Comprehensive guides for all modules
 

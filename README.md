@@ -1,10 +1,10 @@
 # Shared LaTeX Preamble
 
-A modular, PIV-based (Principle of Independent Variation) LaTeX preamble for consistent document styling across dissertations, articles, and books.
+A modular, IVP-based (Independent Variation Principle) LaTeX preamble for consistent document styling across dissertations, articles, and books.
 
 ## Philosophy
 
-This preamble follows the **Principle of Independent Variation (PIV)**: each concern varies in exactly one place. Every feature (tables, diagrams, algorithms, listings) is self-contained with its own package imports and configuration.
+This preamble follows the **Independent Variation Principle (IVP)**: each concern varies in exactly one place. Every feature (tables, diagrams, algorithms, listings) is self-contained with its own package imports and configuration.
 
 ## Directory Structure
 
@@ -16,7 +16,7 @@ infolead-latex-templates/
 ├── typography.tex            # Font configuration
 ├── math.tex                  # Mathematical operators
 ├── theorems-standard.tex     # Standard math theorems
-├── theorems-piv.tex          # PIV-specific theorems
+├── theorems-ivp.tex          # IVP-specific theorems
 ├── bibliography.tex          # Citation support
 ├── tables.tex                # Table formatting
 ├── diagrams.tex              # TikZ diagrams
@@ -100,12 +100,12 @@ Generic mathematical theorem environments.
 - **Dependencies**: packages.tex
 - **Usage**: Load in all mathematical documents
 
-#### `theorems-piv.tex`
-PIV-specific custom theorem environments.
+#### `theorems-ivp.tex`
+IVP-specific custom theorem environments.
 - **Requires**: amsthm (from packages.tex)
 - **Provides**: principle, directive, axiom, problem, pattern, design-decision, fallacy, observation, instantiation, construction, speculation
 - **Dependencies**: packages.tex
-- **Usage**: Optional - only load for software design/PIV documents
+- **Usage**: Optional - only load for software design/IVP documents
 
 ### Feature Modules (Optional - Enable As Needed)
 
@@ -300,7 +300,7 @@ pdflatex test.tex
 - Easy to override settings
 - Supports multiple document types
 
-### PIV Compliance
+### IVP Compliance
 - Each concern varies independently
 - Minimal coupling between modules
 - Explicit dependencies
