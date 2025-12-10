@@ -1,2 +1,5 @@
 **/*.log
 **/target
+**/*.aux
+**/*.fdb_latexmk
+**/*.fls
