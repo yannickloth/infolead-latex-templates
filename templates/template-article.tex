@@ -10,43 +10,41 @@
 % use template-dissertation.tex (scrreprt) or template-book.tex (scrbook).
 
 % Path to shared preamble (adjust relative to your document location)
-% Generic preamble (infolead-general/src/main/latex)
-\newcommand{\sharedpreamble}{../../../../infolead-general/src/main/latex}
-% KOMA-specific preamble (this directory)
-\newcommand{\komapreamble}{.}
+% Preamble is one level up from templates directory
+\newcommand{\preamble}{..}
 
 % KOMA-Script configuration (must load early)
-\input{\komapreamble/koma-config.tex}
+\input{\preamble/koma-config.tex}
 
 % Core packages (must load early for unicode and encoding support)
-\input{\sharedpreamble/packages.tex}
+\input{\preamble/packages.tex}
 
 % Typography and fonts (must load after packages, before math)
-\input{\sharedpreamble/typography.tex}
+\input{\preamble/typography.tex}
 
 % Mathematical configuration
-\input{\sharedpreamble/math.tex}
+\input{\preamble/math.tex}
 
 % Theorem-like environments (choose what you need)
-\input{\sharedpreamble/theorems-standard.tex}  % Generic math theorems
-% \input{\sharedpreamble/theorems-ivp.tex}     % IVP-specific theorems (optional)
+\input{\preamble/theorems-standard.tex}  % Generic math theorems
+% \input{\preamble/theorems-ivp.tex}     % IVP-specific theorems (optional)
 
 % Feature-specific modules (comment out features you don't need)
-\input{\sharedpreamble/bibliography.tex}   % Citation support
-\input{\sharedpreamble/tables.tex}         % Table formatting
-\input{\sharedpreamble/diagrams.tex}       % TikZ diagrams
-\input{\sharedpreamble/algorithms.tex}     % Algorithm pseudocode
-\input{\sharedpreamble/listings.tex}       % Code listings
+\input{\preamble/bibliography.tex}   % Citation support
+\input{\preamble/tables.tex}         % Table formatting
+\input{\preamble/diagrams.tex}       % TikZ diagrams
+\input{\preamble/algorithms.tex}     % Algorithm pseudocode
+\input{\preamble/listings.tex}       % Code listings
 
 % Spacing adjustments (you may want to relax these for articles)
-\input{\komapreamble/spacing.tex}
+\input{\preamble/spacing.tex}
 
 % Page headers and footers (KOMA-Script)
 % Note: For articles, you may want to disable or customize headers
-% \input{\komapreamble/koma-headers.tex}
+% \input{\preamble/koma-headers.tex}
 
 % Hyperref (MUST load last)
-\input{\sharedpreamble/hyperref.tex}
+\input{\preamble/hyperref.tex}
 
 % ============================================================================
 % DOCUMENT-SPECIFIC CUSTOMIZATIONS
