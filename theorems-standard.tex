@@ -27,5 +27,9 @@
 \newtheorem{example}{Example}
 
 % Remark style for notes and remarks
+% We use a custom environment to add a closing marker for multi-paragraph clarity
 \theoremstyle{remark}
-\newtheorem{remark}{Remark}
+\newtheorem{remark@inner}{Remark}
+\newenvironment{remark}
+  {\begin{remark@inner}}
+  {\hfill$\diamond$\end{remark@inner}}
