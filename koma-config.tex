@@ -26,13 +26,39 @@
 }
 
 % Configure abstract environment to show heading and prevent page breaks
-\renewcommand*{\abstractname}{Abstract}
-\renewenvironment{abstract}{%
-  \section*{\abstractname}%
-  \quotation
+\makeatletter
+\providecommand*{\abstractname}{Abstract}
+% Check if abstract environment exists by checking for \abstract command
+\@ifundefined{abstract}{%
+  % Define new abstract environment if it doesn't exist (scrbook case)
+  \newenvironment{abstract}{%
+    \@ifundefined{chapter}{%
+      \section*{\abstractname}%
+    }{%
+      \chapter*{\abstractname}%
+      \addcontentsline{toc}{chapter}{\abstractname}%
+    }%
+    \quotation
+  }{%
+    \endquotation
+    \@ifundefined{chapter}{}{\clearpage}%
+  }%
 }{%
-  \endquotation
+  % Redefine existing abstract environment (scrreprt/scrartcl case)
+  \renewenvironment{abstract}{%
+    \@ifundefined{chapter}{%
+      \section*{\abstractname}%
+    }{%
+      \chapter*{\abstractname}%
+      \addcontentsline{toc}{chapter}{\abstractname}%
+    }%
+    \quotation
+  }{%
+    \endquotation
+    \@ifundefined{chapter}{}{\clearpage}%
+  }%
 }
+\makeatother
 
 % Increase TOC number width for section entries to prevent overflow
 \RedeclareSectionCommand[
