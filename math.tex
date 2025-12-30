@@ -19,3 +19,21 @@
 
 % Adjust array and matrix spacing
 \renewcommand{\arraystretch}{1.1}  % Default is 1.0, slightly increased for readability
+
+% ============================================================================
+% DIRAC NOTATION (bra-ket)
+% ============================================================================
+% Lowercase versions: fixed-size delimiters
+% Uppercase versions: auto-sizing delimiters
+
+% Fixed-size versions
+\newcommand{\bra}[1]{\langle #1 \rvert}
+\newcommand{\ket}[1]{\lvert #1 \rangle}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\mel}[3]{\langle #1 | #2 | #3 \rangle} % Matrix Element
+
+% Auto-sizing versions
+\newcommand{\Bra}[1]{\left\langle #1 \right\rvert}
+\newcommand{\Ket}[1]{\left\lvert #1 \right\rangle}
+\newcommand{\Braket}[2]{\left\langle #1 \middle| #2 \right\rangle}
+\newcommand{\Mel}[3]{\left\langle #1 \middle| #2 \middle| #3 \right\rangle} % Matrix Element
