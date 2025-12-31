@@ -41,7 +41,6 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{hypothesis}[theorem]{Hypothesis}
 
 % Definition style (upright body) for definitions
 \theoremstyle{definition}
@@ -63,7 +62,6 @@
 % and software design theory documents.
 
 \theoremstyle{definition}
-\newtheorem{axiom}{Axiom}
 \newtheorem{principle}{Principle}
 \newtheorem{directive}{Directive}
 \newtheorem{problem}{Problem}
@@ -74,7 +72,6 @@
 \newtheorem{instantiation}{Instantiation}
 \newtheorem{construction}{Construction}
 \newtheorem{speculation}{Speculation}
-\newtheorem{assumption}{Assumption}
 
 % ============================================================================
 % PART 3: SCIENTIFIC CLAIM ENVIRONMENTS (with tcolorbox styling)
@@ -96,6 +93,12 @@
 \definecolor{openquestionframe}{gray}{0.5}   % Medium-light gray
 \definecolor{requirementbg}{gray}{0.96}      % Light gray
 \definecolor{requirementframe}{gray}{0.35}   % Medium-dark gray
+\definecolor{hypothesisbg}{gray}{0.97}       % Near white
+\definecolor{hypothesisframe}{gray}{0.45}    % Medium gray
+\definecolor{axiombg}{gray}{0.93}            % Slightly darker for prominence
+\definecolor{axiomframe}{gray}{0.15}         % Very dark frame (foundational)
+\definecolor{assumptionbg}{gray}{0.97}       % Near white
+\definecolor{assumptionframe}{gray}{0.5}     % Medium gray
 
 % ----------------------------------------------------------------------------
 % COUNTER SETUP
@@ -347,6 +350,103 @@
 }
 
 % ----------------------------------------------------------------------------
+% HYPOTHESIS ENVIRONMENT
+% ----------------------------------------------------------------------------
+% For unproven assumptions and working hypotheses that require validation.
+% Styled with dash-dot border to indicate "tentative/uncertain".
+
+\newtcolorbox[use counter=scientificclaim, number within=chapter]{hypothesis}[1][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=hypothesisbg,
+  colframe=hypothesisframe,
+  boxrule=0pt,
+  arc=2pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  title=Hypothesis~\thescientificclaim\ifstrempty{#1}{}{: #1},
+  before upper={\parindent=1.5em},
+  borderline={1pt}{0pt}{hypothesisframe, dash dot},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={
+    colback=hypothesisbg,
+    colframe=hypothesisframe,
+    boxrule=0.5pt,
+    arc=1pt
+  }
+}
+
+% ----------------------------------------------------------------------------
+% AXIOM ENVIRONMENT
+% ----------------------------------------------------------------------------
+% For foundational statements that are taken as given.
+% Styled with thick double border for maximum prominence (foundational claims).
+
+\newtcolorbox[use counter=scientificclaim, number within=chapter]{axiom}[1][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=axiombg,
+  colframe=axiomframe,
+  boxrule=1.2pt,
+  arc=0pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  title=Axiom~\thescientificclaim\ifstrempty{#1}{}{: #1},
+  before upper={\parindent=1.5em},
+  borderline={2pt}{-4pt}{axiomframe},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={
+    colback=axiombg,
+    colframe=axiomframe,
+    boxrule=0.8pt,
+    arc=0pt
+  }
+}
+
+% ----------------------------------------------------------------------------
+% ASSUMPTION ENVIRONMENT
+% ----------------------------------------------------------------------------
+% For working assumptions with similar epistemic status to hypothesis.
+% Styled with left and right bars to indicate "bracketed/conditional".
+
+\newtcolorbox[use counter=scientificclaim, number within=chapter]{assumption}[1][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=assumptionbg,
+  colframe=assumptionframe,
+  boxrule=0pt,
+  arc=0pt,
+  left=10pt,
+  right=10pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  title=Assumption~\thescientificclaim\ifstrempty{#1}{}{: #1},
+  before upper={\parindent=1.5em},
+  borderline west={2pt}{0pt}{assumptionframe},
+  borderline east={2pt}{0pt}{assumptionframe},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={
+    colback=assumptionbg,
+    colframe=assumptionframe,
+    boxrule=0.5pt,
+    arc=0pt
+  }
+}
+
+% ----------------------------------------------------------------------------
 % CONCLUSION ENVIRONMENT (section-level)
 % ----------------------------------------------------------------------------
 % For chapter/section conclusions summarizing key points.
@@ -469,6 +569,85 @@
   boxed title style={
     colback=warningbg,
     colframe=warningframe,
+    boxrule=0.5pt,
+    arc=0pt
+  }
+}
+
+\newtcolorbox{hypothesis*}[1][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=hypothesisbg,
+  colframe=hypothesisframe,
+  boxrule=0pt,
+  arc=2pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  title=Hypothesis\ifstrempty{#1}{}{: #1},
+  before upper={\parindent=1.5em},
+  borderline={1pt}{0pt}{hypothesisframe, dash dot},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={
+    colback=hypothesisbg,
+    colframe=hypothesisframe,
+    boxrule=0.5pt,
+    arc=1pt
+  }
+}
+
+\newtcolorbox{axiom*}[1][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=axiombg,
+  colframe=axiomframe,
+  boxrule=1.2pt,
+  arc=0pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  title=Axiom\ifstrempty{#1}{}{: #1},
+  before upper={\parindent=1.5em},
+  borderline={2pt}{-4pt}{axiomframe},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={
+    colback=axiombg,
+    colframe=axiomframe,
+    boxrule=0.8pt,
+    arc=0pt
+  }
+}
+
+\newtcolorbox{assumption*}[1][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=assumptionbg,
+  colframe=assumptionframe,
+  boxrule=0pt,
+  arc=0pt,
+  left=10pt,
+  right=10pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  title=Assumption\ifstrempty{#1}{}{: #1},
+  before upper={\parindent=1.5em},
+  borderline west={2pt}{0pt}{assumptionframe},
+  borderline east={2pt}{0pt}{assumptionframe},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={
+    colback=assumptionbg,
+    colframe=assumptionframe,
     boxrule=0.5pt,
     arc=0pt
   }
