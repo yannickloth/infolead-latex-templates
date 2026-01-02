@@ -5,6 +5,22 @@
 
 \usepackage{hyperref}
 
+% Fix for documents with >26 chapters: Override \@Alph to use alphalph
+% The hyperref/bookmark packages use \@Alph for generating anchors, which
+% fails for chapter numbers > 26. If alphalph is loaded, use \AlphAlph instead.
+\@ifpackageloaded{alphalph}{%
+  \makeatletter
+  \let\original@Alph\@Alph
+  \renewcommand{\@Alph}[1]{%
+    \ifnum#1>26 %
+      \AlphAlph{#1}%
+    \else
+      \original@Alph{#1}%
+    \fi
+  }
+  \makeatother
+}{}
+
 % Additional hyperref configuration can be added here if needed:
 % \hypersetup{
 %     colorlinks=true,
