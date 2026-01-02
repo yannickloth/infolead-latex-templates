@@ -13,7 +13,7 @@
 %   - theorems-ivp.tex (IVP-specific theorems)
 %   - theorems-scientific.tex (scientific claims with tcolorbox styling)
 %
-% All styling is black-and-white print friendly (uses patterns/borders, not colors)
+% Styling uses subtle semantic colors with distinct border patterns for B&W print compatibility
 
 % Verify required packages are loaded
 \makeatletter
@@ -78,27 +78,73 @@
 % ============================================================================
 % Custom theorem-like structures for scientific manuscripts that need to
 % distinguish between different epistemic statuses of claims.
-% All styling is black-and-white print friendly.
+% Styling uses subtle semantic colors with icons for quick identification,
+% plus distinct border patterns that remain distinguishable in B&W print.
 
 % ----------------------------------------------------------------------------
-% COLOR DEFINITIONS (grayscale-friendly)
+% COLOR DEFINITIONS (subtle semantic colors)
 % ----------------------------------------------------------------------------
-\definecolor{achievementbg}{gray}{0.95}      % Light gray background
-\definecolor{achievementframe}{gray}{0.3}    % Dark gray frame
-\definecolor{predictionbg}{gray}{0.92}       % Slightly darker gray
-\definecolor{predictionframe}{gray}{0.2}     % Very dark frame
-\definecolor{warningbg}{gray}{0.97}          % Near white
-\definecolor{warningframe}{gray}{0.4}        % Medium gray
-\definecolor{openquestionbg}{gray}{0.98}     % Near white
-\definecolor{openquestionframe}{gray}{0.5}   % Medium-light gray
-\definecolor{requirementbg}{gray}{0.96}      % Light gray
-\definecolor{requirementframe}{gray}{0.35}   % Medium-dark gray
-\definecolor{hypothesisbg}{gray}{0.97}       % Near white
-\definecolor{hypothesisframe}{gray}{0.45}    % Medium gray
-\definecolor{axiombg}{gray}{0.93}            % Slightly darker for prominence
-\definecolor{axiomframe}{gray}{0.15}         % Very dark frame (foundational)
-\definecolor{assumptionbg}{gray}{0.97}       % Near white
-\definecolor{assumptionframe}{gray}{0.5}     % Medium gray
+% Each environment type has a distinct but subtle color to aid quick identification.
+% Colors are chosen to be subtle enough for academic reading while providing
+% semantic distinction. Border patterns (solid, dashed, dotted, etc.) remain
+% as secondary visual cues for B&W printing.
+
+% Achievement: Subtle green tint (success/breakthrough)
+\definecolor{achievementbg}{RGB}{240, 250, 240}       % Very light green
+\definecolor{achievementframe}{RGB}{46, 125, 50}      % Forest green
+
+% Prediction: Subtle blue tint (future/unknown)
+\definecolor{predictionbg}{RGB}{240, 248, 255}        % Alice blue
+\definecolor{predictionframe}{RGB}{30, 90, 150}       % Steel blue
+
+% Postdiction: Subtle blue-gray tint (verified retrospective)
+\definecolor{postdictionbg}{RGB}{245, 248, 250}       % Very light slate
+\definecolor{postdictionframe}{RGB}{70, 100, 130}     % Slate blue
+
+% Warning: Subtle amber/orange tint (caution)
+\definecolor{warningbg}{RGB}{255, 250, 240}           % Floral white/cream
+\definecolor{warningframe}{RGB}{180, 95, 6}           % Dark orange
+
+% Open Question: Subtle purple tint (unresolved/mystery)
+\definecolor{openquestionbg}{RGB}{248, 245, 255}      % Lavender tint
+\definecolor{openquestionframe}{RGB}{106, 90, 150}    % Muted purple
+
+% Requirement: Subtle red tint (mandatory/critical)
+\definecolor{requirementbg}{RGB}{255, 245, 245}       % Very light pink
+\definecolor{requirementframe}{RGB}{150, 50, 50}      % Dark red
+
+% Hypothesis: Subtle yellow tint (tentative/uncertain)
+\definecolor{hypothesisbg}{RGB}{255, 252, 240}        % Very light yellow
+\definecolor{hypothesisframe}{RGB}{160, 130, 40}      % Dark gold
+
+% Axiom: Subtle deep blue tint (foundational/bedrock)
+\definecolor{axiombg}{RGB}{240, 245, 255}             % Very light blue
+\definecolor{axiomframe}{RGB}{25, 50, 100}            % Navy blue
+
+% Assumption: Subtle gray-blue tint (conditional/bracketed)
+\definecolor{assumptionbg}{RGB}{248, 250, 252}        % Very light slate gray
+\definecolor{assumptionframe}{RGB}{80, 100, 120}      % Slate gray
+
+% Consistency Check: Subtle teal tint (verification/check)
+\definecolor{consistencybg}{RGB}{240, 252, 250}       % Very light teal
+\definecolor{consistencyframe}{RGB}{40, 110, 100}     % Teal
+
+% ----------------------------------------------------------------------------
+% ICON DEFINITIONS
+% ----------------------------------------------------------------------------
+% Icons provide quick visual identification of environment types.
+% Using standard LaTeX symbols for maximum compatibility.
+
+\newcommand{\achievementicon}{\ensuremath{\bigstar}}           % Star for breakthroughs
+\newcommand{\predictionicon}{\ensuremath{\rightarrow}}         % Arrow for future
+\newcommand{\postdictionicon}{\ensuremath{\checkmark}}         % Check for verified
+\newcommand{\warningicon}{\ensuremath{\triangle}}              % Triangle for caution
+\newcommand{\openquestionicon}{\textbf{?}}                     % Question mark
+\newcommand{\requirementicon}{\ensuremath{\bullet}}            % Bullet for mandatory
+\newcommand{\hypothesisicon}{\ensuremath{\sim}}                % Tilde for tentative
+\newcommand{\axiomicon}{\ensuremath{\blacksquare}}             % Solid square for foundation
+\newcommand{\assumptionicon}{\ensuremath{[\,]}}                % Brackets for conditional
+\newcommand{\consistencyicon}{\ensuremath{\equiv}}             % Equivalence for verification
 
 % ----------------------------------------------------------------------------
 % COUNTER SETUP
@@ -134,7 +180,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Achievement~\thescientificclaim\ifstrempty{#1}{}{: #1},
+  title={\achievementicon~Achievement~\thescientificclaim\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={1.5pt}{-3pt}{achievementframe!50},
   coltitle=black,
@@ -166,7 +212,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Prediction~\thescientificclaim\ifstrempty{#1}{}{: #1},
+  title={\predictionicon~Prediction~\thescientificclaim\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={0.8pt}{0pt}{predictionframe, dashed},
   coltitle=black,
@@ -198,7 +244,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Warning~\thescientificclaim\ifstrempty{#1}{}{: #1},
+  title={\warningicon~Warning~\thescientificclaim\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline west={3pt}{0pt}{warningframe},
   coltitle=black,
@@ -230,7 +276,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Open Question~\thescientificclaim\ifstrempty{#1}{}{: #1},
+  title={\openquestionicon~Open Question~\thescientificclaim\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={1pt}{0pt}{openquestionframe, dotted},
   coltitle=black,
@@ -262,7 +308,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Requirement~\thescientificclaim\ifstrempty{#1}{}{: #1},
+  title={\requirementicon~Requirement~\thescientificclaim\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   overlay={
     \draw[requirementframe, line width=1.5pt]
@@ -298,8 +344,8 @@
   enhanced,
   breakable,
   break at=-\baselineskip,
-  colback=predictionbg,
-  colframe=predictionframe,
+  colback=postdictionbg,
+  colframe=postdictionframe,
   boxrule=1pt,
   arc=0pt,
   left=8pt,
@@ -307,13 +353,13 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Postdiction~\thescientificclaim\ifstrempty{#1}{}{: #1},
+  title={\postdictionicon~Postdiction~\thescientificclaim\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
   boxed title style={
-    colback=predictionbg,
-    colframe=predictionframe,
+    colback=postdictionbg,
+    colframe=postdictionframe,
     boxrule=0.5pt,
     arc=0pt
   }
@@ -328,8 +374,8 @@
   enhanced,
   breakable,
   break at=-\baselineskip,
-  colback=achievementbg,
-  colframe=achievementframe,
+  colback=consistencybg,
+  colframe=consistencyframe,
   boxrule=0.5pt,
   arc=2pt,
   left=8pt,
@@ -337,13 +383,13 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Consistency Check~\thescientificclaim\ifstrempty{#1}{}{: #1},
+  title={\consistencyicon~Consistency Check~\thescientificclaim\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
   boxed title style={
-    colback=achievementbg,
-    colframe=achievementframe,
+    colback=consistencybg,
+    colframe=consistencyframe,
     boxrule=0.5pt,
     arc=1pt
   }
@@ -368,7 +414,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Hypothesis~\thescientificclaim\ifstrempty{#1}{}{: #1},
+  title={\hypothesisicon~Hypothesis~\thescientificclaim\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={1pt}{0pt}{hypothesisframe, dash dot},
   coltitle=black,
@@ -400,7 +446,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Axiom~\thescientificclaim\ifstrempty{#1}{}{: #1},
+  title={\axiomicon~Axiom~\thescientificclaim\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={2pt}{-4pt}{axiomframe},
   coltitle=black,
@@ -432,7 +478,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Assumption~\thescientificclaim\ifstrempty{#1}{}{: #1},
+  title={\assumptionicon~Assumption~\thescientificclaim\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline west={2pt}{0pt}{assumptionframe},
   borderline east={2pt}{0pt}{assumptionframe},
@@ -483,7 +529,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Achievement\ifstrempty{#1}{}{: #1},
+  title={\achievementicon~Achievement\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={1.5pt}{-3pt}{achievementframe!50},
   coltitle=black,
@@ -509,7 +555,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Prediction\ifstrempty{#1}{}{: #1},
+  title={\predictionicon~Prediction\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={0.8pt}{0pt}{predictionframe, dashed},
   coltitle=black,
@@ -535,7 +581,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Open Question\ifstrempty{#1}{}{: #1},
+  title={\openquestionicon~Open Question\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={1pt}{0pt}{openquestionframe, dotted},
   coltitle=black,
@@ -561,7 +607,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Warning\ifstrempty{#1}{}{: #1},
+  title={\warningicon~Warning\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline west={3pt}{0pt}{warningframe},
   coltitle=black,
@@ -587,7 +633,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Hypothesis\ifstrempty{#1}{}{: #1},
+  title={\hypothesisicon~Hypothesis\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={1pt}{0pt}{hypothesisframe, dash dot},
   coltitle=black,
@@ -613,7 +659,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Axiom\ifstrempty{#1}{}{: #1},
+  title={\axiomicon~Axiom\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={2pt}{-4pt}{axiomframe},
   coltitle=black,
@@ -639,7 +685,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title=Assumption\ifstrempty{#1}{}{: #1},
+  title={\assumptionicon~Assumption\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline west={2pt}{0pt}{assumptionframe},
   borderline east={2pt}{0pt}{assumptionframe},
