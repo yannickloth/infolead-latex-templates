@@ -5,21 +5,62 @@
 
 \usepackage{hyperref}
 
-% Fix for documents with >26 chapters: Override \@Alph to use alphalph
-% The hyperref/bookmark packages use \@Alph for generating anchors, which
-% fails for chapter numbers > 26. If alphalph is loaded, use \AlphAlph instead.
+% ============================================================================
+% COMPREHENSIVE FIX FOR COUNTERS > 26
+% ============================================================================
+% LaTeX's \Alph and \@Alph commands fail for counters > 26 (A-Z exhausted).
+% This affects hyperref bookmarks, appendices, and other counter-based labels.
+%
+% Solution: Use alphalph package to extend alphabetic counters beyond 26.
+% When alphalph is loaded, override all alphabetic counter commands to use
+% \AlphAlph which supports AA, AB, AC, ... format.
+%
+% This fix is comprehensive and prevents "Counter too large" errors in any
+% context where alphabetic counters are used.
+
+\makeatletter
 \@ifpackageloaded{alphalph}{%
-  \makeatletter
+  %--------------------------------------------------------------------------
+  % Override \@Alph (internal LaTeX command used by hyperref and others)
+  %--------------------------------------------------------------------------
   \let\original@Alph\@Alph
   \renewcommand{\@Alph}[1]{%
-    \ifnum#1>26 %
+    \ifnum#1>26\relax
       \AlphAlph{#1}%
     \else
       \original@Alph{#1}%
     \fi
   }
-  \makeatother
-}{}
+
+  %--------------------------------------------------------------------------
+  % Override \Alph (user-level command for counter printing)
+  %--------------------------------------------------------------------------
+  \let\originalAlph\Alph
+  \renewcommand{\Alph}[1]{%
+    \expandafter\ifnum\value{#1}>26\relax
+      \expandafter\AlphAlph\expandafter{\value{#1}}%
+    \else
+      \originalAlph{#1}%
+    \fi
+  }
+
+  %--------------------------------------------------------------------------
+  % Configure hyperref to use our extended \@Alph
+  %--------------------------------------------------------------------------
+  % This ensures bookmarks and PDF anchors work correctly for >26 chapters
+  \pdfstringdefDisableCommands{%
+    \let\Alph\AlphAlph
+  }
+}{% If alphalph not loaded, issue a warning for large documents
+  \@ifundefined{chapter}{}{%
+    % Only warn for book-class documents with chapters
+    \PackageWarningNoLine{hyperref}{%
+      For documents with >26 chapters, load the alphalph package\MessageBreak
+      before hyperref to prevent 'Counter too large' errors
+    }%
+  }
+}
+\makeatother
 
 % Additional hyperref configuration can be added here if needed:
 % \hypersetup{

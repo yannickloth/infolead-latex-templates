@@ -698,3 +698,18 @@
     arc=0pt
   }
 }
+
+% ============================================================================
+% CHAPTER ABSTRACT ENVIRONMENT
+% ============================================================================
+% For chapter-level summaries that should not create a new chapter
+% (unlike the document-level abstract environment)
+
+\newenvironment{chapterabstract}{%
+  \par\vspace{\baselineskip}%
+  \begin{quotation}%
+  \noindent\textit{\textbf{Abstract:}}\quad%
+}{%
+  \end{quotation}%
+  \par\vspace{\baselineskip}%
+}
