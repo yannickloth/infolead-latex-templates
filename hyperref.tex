@@ -62,6 +62,22 @@
 }
 \makeatother
 
+% ============================================================================
+% FORCE NUMERIC CHAPTER NUMBERING
+% ============================================================================
+% Ensure chapters are always numbered with arabic numerals (1, 2, 3, ...)
+% rather than switching to alphabetic (A, B, C, ...) after chapter 25.
+% This must be set AFTER hyperref is loaded to prevent hyperref from
+% overriding the chapter counter format.
+\makeatletter
+\@ifundefined{chapter}{}{%
+  % Override the chapter counter representation
+  \renewcommand{\thechapter}{\arabic{chapter}}%
+  % Ensure hyperref uses arabic numbering in bookmarks
+  \renewcommand{\theHchapter}{\arabic{chapter}}%
+}
+\makeatother
+
 % Additional hyperref configuration can be added here if needed:
 % \hypersetup{
 %     colorlinks=true,
