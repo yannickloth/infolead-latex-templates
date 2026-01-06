@@ -1,0 +1,99 @@
+\RequirePackage{xcolor}
+
+% Core descriptive colors
+\definecolor{midnight_blue}{RGB}{25,25,112}    % Midnight blue (brand/dark)
+\definecolor{crimson}{RGB}{220,20,60}         % Crimson (accent)
+\definecolor{ghost_white}{RGB}{245,245,245}   % Ghost white (light)
+
+\definecolor{documentation_blue}{RGB}{30,70,110}
+\definecolor{documentation_green}{RGB}{40,100,40}
+\definecolor{documentation_red}{RGB}{140,30,30}
+
+\definecolor{charcoal}{HTML}{1A1A1A}          % Core body text
+
+% Viridis-inspired descriptive palette
+\definecolor{viridis_darker_blue}{HTML}{38598C}
+\definecolor{viridis_blue}{HTML}{2D708E}
+\definecolor{viridis_green}{HTML}{21908C}
+\definecolor{viridis_purple}{HTML}{440154}
+
+% Environment-specific descriptive names
+\definecolor{viridis_yellowgreen_frame}{HTML}{2E7D32}
+\definecolor{viridis_yellowgreen_bg}{HTML}{F6FFF4}
+
+\definecolor{viridis_prediction_frame}{HTML}{2D708E}
+\definecolor{viridis_prediction_bg}{HTML}{F4F8FA}
+
+\definecolor{muted_slate_frame}{HTML}{48616D}
+\definecolor{muted_slate_bg}{HTML}{F6F7F8}
+
+\definecolor{inferno_orange_frame}{HTML}{D45B12}
+\definecolor{inferno_orange_bg}{HTML}{FFF8F4}
+
+\definecolor{magma_purple_frame}{HTML}{7A1F7A}
+\definecolor{magma_purple_bg}{HTML}{FAF4FA}
+
+\definecolor{inferno_darkred_frame}{HTML}{900C3F}
+\definecolor{inferno_darkred_bg}{HTML}{F9F2F5}
+
+\definecolor{scientific_gold_frame}{HTML}{A58200}
+\definecolor{scientific_gold_bg}{HTML}{FFFDF2}
+
+\definecolor{viridis_deep_purple_frame}{HTML}{440154}
+\definecolor{viridis_deep_purple_bg}{HTML}{FAF6FF}
+
+\definecolor{neutral_cool_gray_frame}{HTML}{5D6D7E}
+\definecolor{neutral_cool_gray_bg}{HTML}{F8F9FA}
+
+\definecolor{viridis_teal_frame}{HTML}{1E847F}
+\definecolor{viridis_teal_bg}{HTML}{F2F9F9}
+
+% ---------------------------------------------------------------------
+% Backwards-compatible aliases (keep existing usage names working)
+% ---------------------------------------------------------------------
+\colorlet{infolead-dark}{midnight_blue}
+\colorlet{infolead-accent}{crimson}
+\colorlet{infolead-light}{ghost_white}
+
+\colorlet{DocBlue}{documentation_blue}
+\colorlet{DocGreen}{documentation_green}
+\colorlet{DocRed}{documentation_red}
+
+\colorlet{Charcoal}{charcoal}
+
+\colorlet{ViridisDarkerBlue}{viridis_darker_blue}
+\colorlet{ViridisBlue}{viridis_blue}
+\colorlet{ViridisGreen}{viridis_green}
+\colorlet{ViridisPurple}{viridis_purple}
+\colorlet{ViridisPlum}{viridis_purple} % alias retained
+
+% Environment aliases (old names -> descriptive new names)
+\colorlet{achievementframe}{viridis_yellowgreen_frame}
+\colorlet{achievementbg}{viridis_yellowgreen_bg}
+
+\colorlet{predictionframe}{viridis_prediction_frame}
+\colorlet{predictionbg}{viridis_prediction_bg}
+
+\colorlet{postdictionframe}{muted_slate_frame}
+\colorlet{postdictionbg}{muted_slate_bg}
+
+\colorlet{warningframe}{inferno_orange_frame}
+\colorlet{warningbg}{inferno_orange_bg}
+
+\colorlet{openquestionframe}{magma_purple_frame}
+\colorlet{openquestionbg}{magma_purple_bg}
+
+\colorlet{requirementframe}{inferno_darkred_frame}
+\colorlet{requirementbg}{inferno_darkred_bg}
+
+\colorlet{hypothesisframe}{scientific_gold_frame}
+\colorlet{hypothesisbg}{scientific_gold_bg}
+
+\colorlet{axiomframe}{viridis_deep_purple_frame}
+\colorlet{axiombg}{viridis_deep_purple_bg}
+
+\colorlet{assumptionframe}{neutral_cool_gray_frame}
+\colorlet{assumptionbg}{neutral_cool_gray_bg}
+
+\colorlet{consistencyframe}{viridis_teal_frame}
+\colorlet{consistencybg}{viridis_teal_bg}

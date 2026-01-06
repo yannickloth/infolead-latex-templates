@@ -86,51 +86,24 @@
 % ----------------------------------------------------------------------------
 % COLOR DEFINITIONS (subtle semantic colors)
 % ----------------------------------------------------------------------------
-% Each environment type has a distinct but subtle color to aid quick identification.
-% Colors are chosen to be subtle enough for academic reading while providing
-% semantic distinction. Border patterns (solid, dashed, dotted, etc.) remain
-% as secondary visual cues for B&W printing.
-
-% Achievement: Subtle green tint (success/breakthrough)
-\definecolor{achievementbg}{RGB}{240, 250, 240}       % Very light green
-\definecolor{achievementframe}{RGB}{46, 125, 50}      % Forest green
-
-% Prediction: Subtle blue tint (future/unknown)
-\definecolor{predictionbg}{RGB}{240, 248, 255}        % Alice blue
-\definecolor{predictionframe}{RGB}{30, 90, 150}       % Steel blue
-
-% Postdiction: Subtle blue-gray tint (verified retrospective)
-\definecolor{postdictionbg}{RGB}{245, 248, 250}       % Very light slate
-\definecolor{postdictionframe}{RGB}{70, 100, 130}     % Slate blue
-
-% Warning: Subtle amber/orange tint (caution)
-\definecolor{warningbg}{RGB}{255, 250, 240}           % Floral white/cream
-\definecolor{warningframe}{RGB}{180, 95, 6}           % Dark orange
-
-% Open Question: Subtle purple tint (unresolved/mystery)
-\definecolor{openquestionbg}{RGB}{248, 245, 255}      % Lavender tint
-\definecolor{openquestionframe}{RGB}{106, 90, 150}    % Muted purple
-
-% Requirement: Subtle red tint (mandatory/critical)
-\definecolor{requirementbg}{RGB}{255, 245, 245}       % Very light pink
-\definecolor{requirementframe}{RGB}{150, 50, 50}      % Dark red
-
-% Hypothesis: Subtle yellow tint (tentative/uncertain)
-\definecolor{hypothesisbg}{RGB}{255, 252, 240}        % Very light yellow
-\definecolor{hypothesisframe}{RGB}{160, 130, 40}      % Dark gold
-
-% Axiom: Subtle deep blue tint (foundational/bedrock)
-\definecolor{axiombg}{RGB}{240, 245, 255}             % Very light blue
-\definecolor{axiomframe}{RGB}{25, 50, 100}            % Navy blue
-
-% Assumption: Subtle gray-blue tint (conditional/bracketed)
-\definecolor{assumptionbg}{RGB}{248, 250, 252}        % Very light slate gray
-\definecolor{assumptionframe}{RGB}{80, 100, 120}      % Slate gray
-
-% Consistency Check: Subtle teal tint (verification/check)
-\definecolor{consistencybg}{RGB}{240, 252, 250}       % Very light teal
-\definecolor{consistencyframe}{RGB}{40, 110, 100}     % Teal
-
+\makeatletter
+\IfFileExists{currfile.sty}{\RequirePackage{currfile}}{}%
+\@ifundefined{colors@loaded}{%
+  \def\colors@loaded{}% mark as loaded to prevent repeat
+  % try currfiledir (if defined), then the template subdir, then current directory
+  \IfFileExists{\currfiledir/colors.tex}{%
+    \input{\currfiledir/colors.tex}%
+  }{%
+    \IfFileExists{infolead-latex-templates/colors.tex}{%
+      \input{infolead-latex-templates/colors.tex}%
+    }{%
+      \IfFileExists{colors.tex}{\input{colors.tex}}{%
+        \PackageWarning{theorems}{colors.tex not found; continuing without it}%
+      }%
+    }%
+  }%
+}{}%
+\makeatother
 % ----------------------------------------------------------------------------
 % ICON DEFINITIONS
 % ----------------------------------------------------------------------------
@@ -151,9 +124,36 @@
 % ----------------------------------------------------------------------------
 % COUNTER SETUP
 % ----------------------------------------------------------------------------
-% Shared counter for all scientific claim environments (numbered sequentially)
-\newcounter{scientificclaim}[chapter]
-\renewcommand{\thescientificclaim}{\thechapter.\arabic{scientificclaim}}
+% Separate counters for each scientific claim environment type (independent numbering)
+\newcounter{axiomcounter}[chapter]
+\renewcommand{\theaxiomcounter}{\thechapter.\arabic{axiomcounter}}
+
+\newcounter{hypothesiscounter}[chapter]
+\renewcommand{\thehypothesiscounter}{\thechapter.\arabic{hypothesiscounter}}
+
+\newcounter{achievementcounter}[chapter]
+\renewcommand{\theachievementcounter}{\thechapter.\arabic{achievementcounter}}
+
+\newcounter{predictioncounter}[chapter]
+\renewcommand{\thepredictioncounter}{\thechapter.\arabic{predictioncounter}}
+
+\newcounter{warningcounter}[chapter]
+\renewcommand{\thewarningcounter}{\thechapter.\arabic{warningcounter}}
+
+\newcounter{requirementcounter}[chapter]
+\renewcommand{\therequirementcounter}{\thechapter.\arabic{requirementcounter}}
+
+\newcounter{openquestioncounter}[chapter]
+\renewcommand{\theopenquestioncounter}{\thechapter.\arabic{openquestioncounter}}
+
+\newcounter{postdictioncounter}[chapter]
+\renewcommand{\thepostdictioncounter}{\thechapter.\arabic{postdictioncounter}}
+
+\newcounter{consistencycounter}[chapter]
+\renewcommand{\theconsistencycounter}{\thechapter.\arabic{consistencycounter}}
+
+\newcounter{assumptioncounter}[chapter]
+\renewcommand{\theassumptioncounter}{\thechapter.\arabic{assumptioncounter}}
 
 % ----------------------------------------------------------------------------
 % PAGE BREAK BEHAVIOR
@@ -169,7 +169,7 @@
 % For novel findings and breakthrough results unique to the theory.
 % Styled with double-line border for maximum visibility in B&W.
 
-\newtcolorbox[use counter=scientificclaim, number within=chapter]{achievement}[1][]{%
+\newtcolorbox[use counter=achievementcounter]{achievement}[1][]{%
   enhanced,
   breakable,
   break at=-\baselineskip,
@@ -182,7 +182,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\achievementicon~Achievement~\thescientificclaim\ifstrempty{#1}{}{: #1}},
+  title={\achievementicon~Achievement~\theachievementcounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={1.5pt}{-3pt}{achievementframe!50},
   coltitle=black,
@@ -201,7 +201,7 @@
 % For testable, falsifiable predictions.
 % Styled with dashed border to indicate "future verification needed".
 
-\newtcolorbox[use counter=scientificclaim, number within=chapter]{prediction}[1][]{%
+\newtcolorbox[use counter=predictioncounter]{prediction}[1][]{%
   enhanced,
   breakable,
   break at=-\baselineskip,
@@ -214,7 +214,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\predictionicon~Prediction~\thescientificclaim\ifstrempty{#1}{}{: #1}},
+  title={\predictionicon~Prediction~\thepredictioncounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={0.8pt}{0pt}{predictionframe, dashed},
   coltitle=black,
@@ -233,7 +233,7 @@
 % For caveats, limitations, and scope boundaries.
 % Styled with left bar for quick visual identification.
 
-\newtcolorbox[use counter=scientificclaim, number within=chapter]{warning}[1][]{%
+\newtcolorbox[use counter=warningcounter]{warning}[1][]{%
   enhanced,
   breakable,
   break at=-\baselineskip,
@@ -246,7 +246,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\warningicon~Warning~\thescientificclaim\ifstrempty{#1}{}{: #1}},
+  title={\warningicon~Warning~\thewarningcounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline west={3pt}{0pt}{warningframe},
   coltitle=black,
@@ -265,7 +265,7 @@
 % For unresolved problems and directions for future research.
 % Styled with dotted border to indicate "incomplete/open".
 
-\newtcolorbox[use counter=scientificclaim, number within=chapter]{open_question}[1][]{%
+\newtcolorbox[use counter=openquestioncounter]{open_question}[1][]{%
   enhanced,
   breakable,
   break at=-\baselineskip,
@@ -278,7 +278,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\openquestionicon~Open Question~\thescientificclaim\ifstrempty{#1}{}{: #1}},
+  title={\openquestionicon~Open Question~\theopenquestioncounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={1pt}{0pt}{openquestionframe, dotted},
   coltitle=black,
@@ -297,7 +297,7 @@
 % For necessary conditions and consistency requirements.
 % Styled with solid border and corner markers for "must have" emphasis.
 
-\newtcolorbox[use counter=scientificclaim, number within=chapter]{requirement}[1][]{%
+\newtcolorbox[use counter=requirementcounter]{requirement}[1][]{%
   enhanced,
   breakable,
   break at=-\baselineskip,
@@ -310,7 +310,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\requirementicon~Requirement~\thescientificclaim\ifstrempty{#1}{}{: #1}},
+  title={\requirementicon~Requirement~\therequirementcounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   overlay={
     \draw[requirementframe, line width=1.5pt]
@@ -342,7 +342,7 @@
 % For derived results that match already-known data (epistemic honesty).
 % Styled similarly to prediction but with solid border (already verified).
 
-\newtcolorbox[use counter=scientificclaim, number within=chapter]{postdiction}[1][]{%
+\newtcolorbox[use counter=postdictioncounter]{postdiction}[1][]{%
   enhanced,
   breakable,
   break at=-\baselineskip,
@@ -355,7 +355,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\postdictionicon~Postdiction~\thescientificclaim\ifstrempty{#1}{}{: #1}},
+  title={\postdictionicon~Postdiction~\thepostdictioncounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
@@ -372,7 +372,7 @@
 % ----------------------------------------------------------------------------
 % For verification that the theory reproduces known physics.
 
-\newtcolorbox[use counter=scientificclaim, number within=chapter]{consistency_check}[1][]{%
+\newtcolorbox[use counter=consistencycounter]{consistency_check}[1][]{%
   enhanced,
   breakable,
   break at=-\baselineskip,
@@ -385,7 +385,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\consistencyicon~Consistency Check~\thescientificclaim\ifstrempty{#1}{}{: #1}},
+  title={\consistencyicon~Consistency Check~\theconsistencycounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
@@ -403,7 +403,7 @@
 % For unproven assumptions and working hypotheses that require validation.
 % Styled with dash-dot border to indicate "tentative/uncertain".
 
-\newtcolorbox[use counter=scientificclaim, number within=chapter]{hypothesis}[1][]{%
+\newtcolorbox[use counter=hypothesiscounter]{hypothesis}[1][]{%
   enhanced,
   breakable,
   break at=-\baselineskip,
@@ -416,7 +416,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\hypothesisicon~Hypothesis~\thescientificclaim\ifstrempty{#1}{}{: #1}},
+  title={\hypothesisicon~Hypothesis~\thehypothesiscounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={1pt}{0pt}{hypothesisframe, dash dot},
   coltitle=black,
@@ -435,7 +435,7 @@
 % For foundational statements that are taken as given.
 % Styled with thick double border for maximum prominence (foundational claims).
 
-\newtcolorbox[use counter=scientificclaim, number within=chapter]{axiom}[1][]{%
+\newtcolorbox[use counter=axiomcounter]{axiom}[1][]{%
   enhanced,
   breakable,
   break at=-\baselineskip,
@@ -448,7 +448,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\axiomicon~Axiom~\thescientificclaim\ifstrempty{#1}{}{: #1}},
+  title={\axiomicon~Axiom~\theaxiomcounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={2pt}{-4pt}{axiomframe},
   coltitle=black,
@@ -467,7 +467,7 @@
 % For working assumptions with similar epistemic status to hypothesis.
 % Styled with left and right bars to indicate "bracketed/conditional".
 
-\newtcolorbox[use counter=scientificclaim, number within=chapter]{assumption}[1][]{%
+\newtcolorbox[use counter=assumptioncounter]{assumption}[1][]{%
   enhanced,
   breakable,
   break at=-\baselineskip,
@@ -480,7 +480,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\assumptionicon~Assumption~\thescientificclaim\ifstrempty{#1}{}{: #1}},
+  title={\assumptionicon~Assumption~\theassumptioncounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline west={2pt}{0pt}{assumptionframe},
   borderline east={2pt}{0pt}{assumptionframe},
@@ -508,10 +508,10 @@
 % For step-by-step mathematical derivations that aren't formal theorems.
 
 \theoremstyle{definition}
-\newtheorem{derivation@inner}[scientificclaim]{Derivation}
-\newenvironment{derivation}[1][]
-  {\begin{derivation@inner}\ifstrempty{#1}{}{\textnormal{(#1)}}\itshape}
-  {\hfill$\square$\end{derivation@inner}}
+\newtheorem{derivation}{Derivation}[chapter]
+\newenvironment{derivation@env}[1][]
+  {\begin{derivation}\ifstrempty{#1}{}{\textnormal{(#1)}}\itshape}
+  {\hfill$\square$\end{derivation}}
 
 % ============================================================================
 % STARRED VARIANTS (unnumbered)
