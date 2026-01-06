@@ -1,7 +1,16 @@
 % ============================================================================
 % BIBLIOGRAPHY CONFIGURATION
 % ============================================================================
-% Citation and bibliography management.
+% Citation and bibliography management using biblatex with biber backend.
 
-% Citation support
-\usepackage{cite}
+% Load biblatex with biber backend
+\usepackage[
+  backend=biber,
+  style=numeric,
+  sorting=none,
+  maxbibnames=99,
+  giveninits=true
+]{biblatex}
+
+% Add bibliography resource
+\addbibresource{references.bib}
