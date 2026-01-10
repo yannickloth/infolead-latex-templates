@@ -62,18 +62,25 @@
 % ============================================================================
 % Custom theorem-like structures for IVP (Independent Variation Principle)
 % and software design theory documents.
+%
+% These environments are used to formally present different types of design
+% concepts, methods, and structural elements central to design theory discussion.
 
 \theoremstyle{definition}
-\newtheorem{principle}{Principle}
-\newtheorem{directive}{Directive}
-\newtheorem{problem}{Problem}
-\newtheorem{pattern}{Pattern}
-\newtheorem{design-decision}{Design Decision}
-\newtheorem{fallacy}{Fallacy}
-\newtheorem{observation}{Observation}
-\newtheorem{instantiation}{Instantiation}
+\newtheorem{principle}{Principle}           % Fundamental design principle or axiom
+\newtheorem{directive}{Directive}           % Design directive or guideline
+\newtheorem{problem}{Problem}               % Problem statement or design challenge
+\newtheorem{pattern}{Pattern}               % Design pattern or recurring solution
+\newtheorem{design-decision}{Design Decision} % Explicit design decision with rationale
+\newtheorem{fallacy}{Fallacy}               % Common misconception or fallacy to avoid
+\newtheorem{observation}{Observation}       % Empirical observation or insight
+\newtheorem{instantiation}{Instantiation}   % Concrete instantiation of abstract concept
+% Use construction for formally presenting a procedural, structural, or methodological
+% element that is central to the discussion. Examples: a formal algorithm, a structured
+% process, a systematic method for building or composing elements, or a procedural
+% framework. Used to formalize procedural or structural constructions.
 \newtheorem{construction}{Construction}
-\newtheorem{speculation}{Speculation}
+\newtheorem{speculation}{Speculation}       % Speculative idea or hypothesis for exploration
 
 % ============================================================================
 % PART 3: SCIENTIFIC CLAIM ENVIRONMENTS (with tcolorbox styling)
@@ -522,6 +529,14 @@
 
 \newtheorem{calculation}{Calculation}[chapter]
 
+% ----------------------------------------------------------------------------
+% STEP ENVIRONMENT
+% ----------------------------------------------------------------------------
+% For individual steps within a proof or derivation sequence.
+
+\theoremstyle{definition}
+\newtheorem{step}{Step}
+
 % ============================================================================
 % STARRED VARIANTS (unnumbered)
 % ============================================================================
@@ -723,6 +738,37 @@
 }{%
   \end{quotation}%
   \par\vspace{\baselineskip}%
+}
+
+% ============================================================================
+% ROADMAP ENVIRONMENT
+% ============================================================================
+% For chapter-level roadmap sections that outline the logical flow and structure.
+% Used at the beginning of chapters to guide readers through the organization.
+
+\newtcolorbox{roadmap}[1][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=hypothesisbg,
+  colframe=hypothesisframe,
+  boxrule=0.5pt,
+  arc=2pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  title={Chapter Roadmap\ifstrempty{#1}{}{: #1}},
+  before upper={\parindent=1.5em},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={
+    colback=hypothesisbg,
+    colframe=hypothesisframe,
+    boxrule=0.5pt,
+    arc=1pt
+  }
 }
 
 % ============================================================================
