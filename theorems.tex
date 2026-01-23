@@ -779,3 +779,258 @@
 
 \newcounter{qacounter}
 \newcommand{\qa}[1]{\refstepcounter{qacounter}\subsection*{Q\theqacounter: #1}}
+
+% ============================================================================
+% PART 6: PEDAGOGICAL AND INSTRUCTIONAL ENVIRONMENTS
+% ============================================================================
+% Environments for instructional content, pedagogical emphasis, and reader
+% navigation in academic and technical documents.
+%
+% These environments are distinct from scientific claim environments (Part 3):
+% - Scientific environments make truth-claims about reality (hypothesis, observation, etc.)
+% - Pedagogical environments guide the reader (protocol, keypoint, etc.)
+
+% ----------------------------------------------------------------------------
+% COUNTER SETUP
+% ----------------------------------------------------------------------------
+\newcounter{protocolcounter}[chapter]
+\renewcommand{\theprotocolcounter}{\thechapter.\arabic{protocolcounter}}
+
+\newcounter{clinicalfindingcounter}[chapter]
+\renewcommand{\theclinicalfindingcounter}{\thechapter.\arabic{clinicalfindingcounter}}
+
+% keypoint, practicalwarning, and continuation are unnumbered by design
+
+% ----------------------------------------------------------------------------
+% PROTOCOL ENVIRONMENT
+% ----------------------------------------------------------------------------
+% For step-by-step procedures, treatment protocols, experimental methods,
+% and systematic procedures.
+%
+% Used for: Medical treatment protocols, experimental procedures, algorithms,
+% configuration steps, systematic methods.
+
+\newcommand{\protocolicon}{\ensuremath{\triangleright}}
+
+\newtcolorbox[use counter=protocolcounter]{protocol}[1][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=protocolbg,
+  colframe=protocolframe,
+  boxrule=1pt,
+  arc=2pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  title={\protocolicon~Protocol~\theprotocolcounter\ifstrempty{#1}{}{: #1}},
+  before upper={\parindent=1.5em},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={
+    colback=protocolbg,
+    colframe=protocolframe,
+    boxrule=0.5pt,
+    arc=1pt
+  }
+}
+
+% Starred (unnumbered) variant
+\newtcolorbox{protocol*}[1][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=protocolbg,
+  colframe=protocolframe,
+  boxrule=1pt,
+  arc=2pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  title={\protocolicon~Protocol\ifstrempty{#1}{}{: #1}},
+  before upper={\parindent=1.5em},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={
+    colback=protocolbg,
+    colframe=protocolframe,
+    boxrule=0.5pt,
+    arc=1pt
+  }
+}
+
+% ----------------------------------------------------------------------------
+% CLINICAL FINDING ENVIRONMENT
+% ----------------------------------------------------------------------------
+% For documented clinical or experimental findings (case-specific, not literature claims).
+%
+% Used for: Patient case observations, experimental results, diagnostic summaries,
+% laboratory findings from this study/case.
+%
+% Note: For literature-derived findings, use observation environment instead.
+
+\newcommand{\clinicalfindingicon}{\ensuremath{\diamondsuit}}
+
+\newtcolorbox[use counter=clinicalfindingcounter]{clinicalfinding}[1][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=clinicalfindingbg,
+  colframe=clinicalfindingframe,
+  boxrule=0.8pt,
+  arc=0pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  title={\clinicalfindingicon~Clinical Finding~\theclinicalfindingcounter\ifstrempty{#1}{}{: #1}},
+  before upper={\parindent=1.5em},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={
+    colback=clinicalfindingbg,
+    colframe=clinicalfindingframe,
+    boxrule=0.5pt,
+    arc=0pt
+  }
+}
+
+% Starred (unnumbered) variant
+\newtcolorbox{clinicalfinding*}[1][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=clinicalfindingbg,
+  colframe=clinicalfindingframe,
+  boxrule=0.8pt,
+  arc=0pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  title={\clinicalfindingicon~Clinical Finding\ifstrempty{#1}{}{: #1}},
+  before upper={\parindent=1.5em},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={
+    colback=clinicalfindingbg,
+    colframe=clinicalfindingframe,
+    boxrule=0.5pt,
+    arc=0pt
+  }
+}
+
+% ----------------------------------------------------------------------------
+% KEY POINT ENVIRONMENT (unnumbered)
+% ----------------------------------------------------------------------------
+% For critical pedagogical insights, key takeaways, essential concepts.
+%
+% Used for: Highlighting crucial distinctions, summarizing important principles,
+% emphasizing counter-intuitive findings, educational "aha moments".
+
+\newcommand{\keypointicon}{\ensuremath{\star}}
+
+\newtcolorbox{keypoint}[1][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=keypointbg,
+  colframe=keypointframe,
+  boxrule=0pt,
+  arc=2pt,
+  left=10pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  title={\keypointicon~Key Point\ifstrempty{#1}{}{: #1}},
+  before upper={\parindent=1.5em},
+  borderline west={3pt}{0pt}{keypointframe},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={
+    colback=keypointbg,
+    colframe=keypointframe,
+    boxrule=0.5pt,
+    arc=1pt
+  }
+}
+
+% ----------------------------------------------------------------------------
+% PRACTICAL WARNING ENVIRONMENT (unnumbered)
+% ----------------------------------------------------------------------------
+% For real-world caveats, practical limitations, clinical warnings.
+%
+% Used for: Bridging theory-practice gap, warning about common pitfalls,
+% highlighting practical constraints, clinical safety warnings.
+%
+% Note: For scientific study limitations, use warning environment instead.
+
+\newcommand{\practicalwarningicon}{\ensuremath{\triangle}}
+
+\newtcolorbox{practicalwarning}[1][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=practicalwarningbg,
+  colframe=practicalwarningframe,
+  boxrule=0pt,
+  arc=0pt,
+  left=10pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  title={\practicalwarningicon~Warning\ifstrempty{#1}{}{: #1}},
+  before upper={\parindent=1.5em},
+  borderline west={3pt}{0pt}{practicalwarningframe},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={
+    colback=practicalwarningbg,
+    colframe=practicalwarningframe,
+    boxrule=0.5pt,
+    arc=0pt
+  }
+}
+
+% ----------------------------------------------------------------------------
+% CONTINUATION ENVIRONMENT (unnumbered)
+% ----------------------------------------------------------------------------
+% For cross-references to related content in other sections.
+%
+% Used for: Pointing to appendices, directing to supplementary material,
+% indicating where topics continue, managing multi-part content.
+
+\newcommand{\continuationicon}{\ensuremath{\rightarrow}}
+
+\newtcolorbox{continuation}[1][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=continuationbg,
+  colframe=continuationframe,
+  boxrule=0.5pt,
+  arc=2pt,
+  left=8pt,
+  right=8pt,
+  top=4pt,
+  bottom=4pt,
+  fonttitle=\bfseries\sffamily\small,
+  title={\continuationicon~Continued\ifstrempty{#1}{}{: #1}},
+  before upper={\parindent=1.5em\small},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={
+    colback=continuationbg,
+    colframe=continuationframe,
+    boxrule=0.5pt,
+    arc=1pt
+  }
+}
