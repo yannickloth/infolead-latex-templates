@@ -1,0 +1,64 @@
+\documentclass{book}
+\usepackage[margin=1in]{geometry}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{etoolbox}
+
+% Colors from the template
+\definecolor{keypointbg}{RGB}{255,250,240}
+\definecolor{keypointframe}{RGB}{255,140,0}
+
+% The keypoint environment (copy of template definition for standalone testing)
+\newcommand{\keypointicon}{\ensuremath{\star}}
+
+\newtcolorbox{keypoint}[1][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=keypointbg,
+  colframe=keypointframe,
+  boxrule=0pt,
+  arc=2pt,
+  left=10pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  adjusted title={\keypointicon~Key Point\ifstrempty{#1}{}{: #1}},
+  before upper={\parindent=1.5em},
+  borderline west={3pt}{0pt}{keypointframe},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
+  boxed title style={
+    colback=keypointbg,
+    colframe=keypointframe,
+    boxrule=0.5pt,
+    arc=1pt
+  }
+}
+
+\begin{document}
+\chapter{Test Chapter}
+
+\section{Testing Long Titles}
+
+% Test case: Long title that previously overflowed into right margin
+\begin{keypoint}[Treatment Goals for Severe Disease: Symptom Management First, Recovery Uncertain]
+
+\textbf{Primary goal (likely achievable for many):} Reduce suffering from unbearable to tolerable
+\begin{itemize}
+    \item Target: Substantial symptom reduction within 2 weeks
+    \item Outcome: Severe symptoms become moderate; life remains restricted but bearable
+\end{itemize}
+
+\textbf{Secondary goal (possible for some):} Stabilize baseline and prevent further decline
+
+\end{keypoint}
+
+% Test case: Short title for comparison
+\begin{keypoint}[Short Title]
+This is a keypoint with a short title for comparison.
+\end{keypoint}
+
+\end{document}
