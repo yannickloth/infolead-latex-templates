@@ -189,18 +189,18 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\achievementicon~Achievement~\theachievementcounter\ifstrempty{#1}{}{: #1}},
+  adjusted title={\achievementicon~Achievement~\theachievementcounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={1.5pt}{-3pt}{achievementframe!50},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=achievementbg,
     colframe=achievementframe,
     boxrule=0.5pt,
     arc=1pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % ----------------------------------------------------------------------------
@@ -222,18 +222,18 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\predictionicon~Prediction~\thepredictioncounter\ifstrempty{#1}{}{: #1}},
+  adjusted title={\predictionicon~Prediction~\thepredictioncounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={0.8pt}{0pt}{predictionframe, dashed},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=predictionbg,
     colframe=predictionframe,
     boxrule=0.5pt,
     arc=0pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % ----------------------------------------------------------------------------
@@ -255,18 +255,18 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\warningicon~Warning~\thewarningcounter\ifstrempty{#1}{}{: #1}},
+  adjusted title={\warningicon~Warning~\thewarningcounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline west={3pt}{0pt}{warningframe},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=warningbg,
     colframe=warningframe,
     boxrule=0.5pt,
     arc=0pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % ----------------------------------------------------------------------------
@@ -288,18 +288,18 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\openquestionicon~Open Question~\theopenquestioncounter\ifstrempty{#1}{}{: #1}},
+  adjusted title={\openquestionicon~Open Question~\theopenquestioncounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={1pt}{0pt}{openquestionframe, dotted},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=openquestionbg,
     colframe=openquestionframe,
     boxrule=0.5pt,
     arc=1pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % ----------------------------------------------------------------------------
@@ -321,7 +321,7 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\requirementicon~Requirement~\therequirementcounter\ifstrempty{#1}{}{: #1}},
+  adjusted title={\requirementicon~Requirement~\therequirementcounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   overlay={
     \draw[requirementframe, line width=1.5pt]
@@ -339,13 +339,13 @@
   },
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=requirementbg,
     colframe=requirementframe,
     boxrule=0.5pt,
     arc=0pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % ----------------------------------------------------------------------------
@@ -367,17 +367,17 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\postdictionicon~Postdiction~\thepostdictioncounter\ifstrempty{#1}{}{: #1}},
+  adjusted title={\postdictionicon~Postdiction~\thepostdictioncounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=postdictionbg,
     colframe=postdictionframe,
     boxrule=0.5pt,
     arc=0pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % ----------------------------------------------------------------------------
@@ -398,17 +398,17 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\consistencyicon~Consistency Check~\theconsistencycounter\ifstrempty{#1}{}{: #1}},
+  adjusted title={\consistencyicon~Consistency Check~\theconsistencycounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=consistencybg,
     colframe=consistencyframe,
     boxrule=0.5pt,
     arc=1pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % ----------------------------------------------------------------------------
@@ -430,18 +430,18 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\hypothesisicon~Hypothesis~\thehypothesiscounter\ifstrempty{#1}{}{: #1}},
+  adjusted title={\hypothesisicon~Hypothesis~\thehypothesiscounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={1pt}{0pt}{hypothesisframe, dash dot},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=hypothesisbg,
     colframe=hypothesisframe,
     boxrule=0.5pt,
     arc=1pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % ----------------------------------------------------------------------------
@@ -463,18 +463,18 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\axiomicon~Axiom~\theaxiomcounter\ifstrempty{#1}{}{: #1}},
+  adjusted title={\axiomicon~Axiom~\theaxiomcounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={2pt}{-4pt}{axiomframe},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=axiombg,
     colframe=axiomframe,
     boxrule=0.8pt,
     arc=0pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % ----------------------------------------------------------------------------
@@ -496,19 +496,19 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\assumptionicon~Assumption~\theassumptioncounter\ifstrempty{#1}{}{: #1}},
+  adjusted title={\assumptionicon~Assumption~\theassumptioncounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline west={2pt}{0pt}{assumptionframe},
   borderline east={2pt}{0pt}{assumptionframe},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=assumptionbg,
     colframe=assumptionframe,
     boxrule=0.5pt,
     arc=0pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % ----------------------------------------------------------------------------
@@ -565,18 +565,18 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\achievementicon~Achievement\ifstrempty{#1}{}{: #1}},
+  adjusted title={\achievementicon~Achievement\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={1.5pt}{-3pt}{achievementframe!50},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=achievementbg,
     colframe=achievementframe,
     boxrule=0.5pt,
     arc=1pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 \newtcolorbox{prediction*}[1][]{%
@@ -592,18 +592,18 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\predictionicon~Prediction\ifstrempty{#1}{}{: #1}},
+  adjusted title={\predictionicon~Prediction\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={0.8pt}{0pt}{predictionframe, dashed},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=predictionbg,
     colframe=predictionframe,
     boxrule=0.5pt,
     arc=0pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 \newtcolorbox{open_question*}[1][]{%
@@ -619,18 +619,18 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\openquestionicon~Open Question\ifstrempty{#1}{}{: #1}},
+  adjusted title={\openquestionicon~Open Question\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={1pt}{0pt}{openquestionframe, dotted},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=openquestionbg,
     colframe=openquestionframe,
     boxrule=0.5pt,
     arc=1pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 \newtcolorbox{warning*}[1][]{%
@@ -646,18 +646,18 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\warningicon~Warning\ifstrempty{#1}{}{: #1}},
+  adjusted title={\warningicon~Warning\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline west={3pt}{0pt}{warningframe},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=warningbg,
     colframe=warningframe,
     boxrule=0.5pt,
     arc=0pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 \newtcolorbox{hypothesis*}[1][]{%
@@ -673,18 +673,18 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\hypothesisicon~Hypothesis\ifstrempty{#1}{}{: #1}},
+  adjusted title={\hypothesisicon~Hypothesis\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={1pt}{0pt}{hypothesisframe, dash dot},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=hypothesisbg,
     colframe=hypothesisframe,
     boxrule=0.5pt,
     arc=1pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 \newtcolorbox{axiom*}[1][]{%
@@ -700,18 +700,18 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\axiomicon~Axiom\ifstrempty{#1}{}{: #1}},
+  adjusted title={\axiomicon~Axiom\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline={2pt}{-4pt}{axiomframe},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=axiombg,
     colframe=axiomframe,
     boxrule=0.8pt,
     arc=0pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 \newtcolorbox{assumption*}[1][]{%
@@ -727,19 +727,19 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\assumptionicon~Assumption\ifstrempty{#1}{}{: #1}},
+  adjusted title={\assumptionicon~Assumption\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline west={2pt}{0pt}{assumptionframe},
   borderline east={2pt}{0pt}{assumptionframe},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=assumptionbg,
     colframe=assumptionframe,
     boxrule=0.5pt,
     arc=0pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % ============================================================================
@@ -776,17 +776,17 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={Chapter Roadmap\ifstrempty{#1}{}{: #1}},
+  adjusted title={Chapter Roadmap\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=hypothesisbg,
     colframe=hypothesisframe,
     boxrule=0.5pt,
     arc=1pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % ============================================================================
@@ -843,17 +843,17 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\protocolicon~Protocol~\theprotocolcounter\ifstrempty{#1}{}{: #1}},
+  adjusted title={\protocolicon~Protocol~\theprotocolcounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=protocolbg,
     colframe=protocolframe,
     boxrule=0.5pt,
     arc=1pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % Starred (unnumbered) variant
@@ -870,17 +870,17 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\protocolicon~Protocol\ifstrempty{#1}{}{: #1}},
+  adjusted title={\protocolicon~Protocol\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=protocolbg,
     colframe=protocolframe,
     boxrule=0.5pt,
     arc=1pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % ----------------------------------------------------------------------------
@@ -908,17 +908,17 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\clinicalfindingicon~Clinical Finding~\theclinicalfindingcounter\ifstrempty{#1}{}{: #1}},
+  adjusted title={\clinicalfindingicon~Clinical Finding~\theclinicalfindingcounter\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=clinicalfindingbg,
     colframe=clinicalfindingframe,
     boxrule=0.5pt,
     arc=0pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % Starred (unnumbered) variant
@@ -935,17 +935,17 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\clinicalfindingicon~Clinical Finding\ifstrempty{#1}{}{: #1}},
+  adjusted title={\clinicalfindingicon~Clinical Finding\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=clinicalfindingbg,
     colframe=clinicalfindingframe,
     boxrule=0.5pt,
     arc=0pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % ----------------------------------------------------------------------------
@@ -971,17 +971,17 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\keypointicon~Key Point\ifstrempty{#1}{}{: #1}},
+  adjusted title={\keypointicon~Key Point\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline west={3pt}{0pt}{keypointframe},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=keypointbg,
     colframe=keypointframe,
     boxrule=0.5pt,
-    arc=1pt,
-    width=\dimexpr\linewidth-8mm\relax
+    arc=1pt
   }
 }
 
@@ -1010,18 +1010,18 @@
   top=6pt,
   bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={\practicalwarningicon~Warning\ifstrempty{#1}{}{: #1}},
+  adjusted title={\practicalwarningicon~Warning\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em},
   borderline west={3pt}{0pt}{practicalwarningframe},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=practicalwarningbg,
     colframe=practicalwarningframe,
     boxrule=0.5pt,
     arc=0pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
 
 % ----------------------------------------------------------------------------
@@ -1047,15 +1047,15 @@
   top=4pt,
   bottom=4pt,
   fonttitle=\bfseries\sffamily\small,
-  title={\continuationicon~Continued\ifstrempty{#1}{}{: #1}},
+  adjusted title={\continuationicon~Continued\ifstrempty{#1}{}{: #1}},
   before upper={\parindent=1.5em\small},
   coltitle=black,
   attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
   boxed title style={
     colback=continuationbg,
     colframe=continuationframe,
     boxrule=0.5pt,
     arc=1pt,
-    width=\dimexpr\linewidth-8mm\relax
-  }
+      }
 }
