@@ -445,6 +445,50 @@
 }
 
 % ----------------------------------------------------------------------------
+% FALSIFIABLE HYPOTHESIS ENVIRONMENT
+% ----------------------------------------------------------------------------
+% Extended hypothesis with explicit falsifiability assessment.
+% Same styling and counter as hypothesis; adds a footer line showing
+% falsifiability status and justification.
+%
+% Usage:
+%   \begin{fhypothesis}[Title]{yes|weakly|no}{Justification text}
+%   \begin{fhypothesis}[Title]{weakly}{}          % status only, no justification
+%   \begin{fhypothesis}{yes}{Has 3 predictions}    % no title
+%
+% The falsifiability status appears as a subtle footer line inside the box.
+
+\newtcolorbox[use counter=hypothesiscounter]{fhypothesis}[3][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=hypothesisbg,
+  colframe=hypothesisframe,
+  boxrule=0pt,
+  arc=2pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  adjusted title={\hypothesisicon~Hypothesis~\thehypothesiscounter\ifstrempty{#1}{}{: #1}},
+  before upper={\parindent=1.5em},
+  borderline={1pt}{0pt}{hypothesisframe, dash dot},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
+  boxed title style={
+    colback=hypothesisbg,
+    colframe=hypothesisframe,
+    boxrule=0.5pt,
+    arc=1pt,
+      },
+  after upper={\par\smallskip\noindent
+    {\small\itshape\textbf{Falsifiability:} #2%
+    \ifstrempty{#3}{}{~--- #3}}},
+}
+
+% ----------------------------------------------------------------------------
 % AXIOM ENVIRONMENT
 % ----------------------------------------------------------------------------
 % For foundational statements that are taken as given.
@@ -685,6 +729,36 @@
     boxrule=0.5pt,
     arc=1pt,
       }
+}
+
+\newtcolorbox{fhypothesis*}[3][]{%
+  enhanced,
+  breakable,
+  break at=-\baselineskip,
+  colback=hypothesisbg,
+  colframe=hypothesisframe,
+  boxrule=0pt,
+  arc=2pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  adjusted title={\hypothesisicon~Hypothesis\ifstrempty{#1}{}{: #1}},
+  before upper={\parindent=1.5em},
+  borderline={1pt}{0pt}{hypothesisframe, dash dot},
+  coltitle=black,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  minipage boxed title*=-14mm,
+  boxed title style={
+    colback=hypothesisbg,
+    colframe=hypothesisframe,
+    boxrule=0.5pt,
+    arc=1pt,
+      },
+  after upper={\par\smallskip\noindent
+    {\small\itshape\textbf{Falsifiability:} #2%
+    \ifstrempty{#3}{}{~--- #3}}},
 }
 
 \newtcolorbox{axiom*}[1][]{%
